@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INSPINIA | Advanced Form Elements</title>
+
+<link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
+<link href="/iagriculture/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/iCheck/custom.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/chosen/chosen.css"
+	rel="stylesheet">
+
+<link
+	href="/iagriculture/css/plugins/colorpicker/bootstrap-colorpicker.min.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/cropper/cropper.min.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/switchery/switchery.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/jasny/jasny-bootstrap.min.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/nouslider/jquery.nouislider.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/datapicker/datepicker3.css"
+	rel="stylesheet">
+
+<link
+	href="/iagriculture/css/plugins/ionRangeSlider/ion.rangeSlider.css"
+	rel="stylesheet">
+<link
+	href="/iagriculture/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css"
+	rel="stylesheet">
+
+<link
+	href="/iagriculture/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/clockpicker/clockpicker.css"
+	rel="stylesheet">
+
+<link
+	href="/iagriculture/css/plugins/daterangepicker/daterangepicker-bs3.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/plugins/select2/select2.min.css"
+	rel="stylesheet">
+
+<link href="/iagriculture/css/animate.css" rel="stylesheet">
+<link href="/iagriculture/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+	<div id="wrapper">
+
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<span> <img alt="image" class="img-circle"
+								src="/iagriculture/img/profile_small.jpg" />
+							</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="clear"> <span class="block m-t-xs"> <strong
+										class="font-bold">David Williams</strong>
+								</span> <span class="text-muted text-xs block">Art Director <b
+										class="caret"></b></span>
+							</span>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight m-t-xs">
+								<li><a href="profile.html">Profile</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
+								<li><a href="mailbox.html">Mailbox</a></li>
+								<li class="divider"></li>
+								<li><a href="login.html">Logout</a></li>
+							</ul>
+						</div>
+						<div class="logo-element">IN+</div>
+					</li>
+					<li><a href="/iagriculture/index/"><i
+							class="fa fa-th-large"></i> <span class="nav-label">个人主页</span></a></li>
+					<li><a href="/iagriculture/index/fazhi"><i
+							class="fa fa-flask"></i> <span class="nav-label">数据管理</span></a></li>
+					<li><a href="/iagriculture/index/shebei"><i
+							class="fa fa-flask"></i> <span class="nav-label">设备管理</span></a></li>
+					<li class="active"><a href="/iagriculture/index/light"><i
+							class="fa fa-diamond"></i> <span class="nav-label">光照检测</span></a></li>
+					<li><a href="/iagriculture/index/daqiya"><i
+							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
+					<li><a href="/iagriculture/index/shuifen"><i
+							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+					<li><a href="/iagriculture/index/kqwendu"><i
+							class="fa fa-pie-chart"></i> <span class="nav-label">空气温湿度检测</span>
+					</a></li>
+					<li><a href="/iagriculture/index/trwendu"><i
+							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
+					<li><a href="/iagriculture/index/yewei"><i
+							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
+					<li><a href="/iagriculture/index/yushui"><i
+							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>
+					<li><a href="/iagriculture/index/co2"><i
+							class="fa fa-globe"></i> <span class="nav-label">二氧化碳浓度</span></a></li>
+				</ul>
+
+			</div>
+		</nav>
+
+
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary "
+							href="#"><i class="fa fa-bars"></i> </a>
+						<form role="search" class="navbar-form-custom"
+							action="search_results.html">
+							<div class="form-group">
+								<input type="text" placeholder="Search for something..."
+									class="form-control" name="top-search" id="top-search">
+							</div>
+						</form>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li><span class="m-r-sm text-muted welcome-message">Welcome
+								to INSPINIA+ Admin Theme.</span></li>
+						<li class="dropdown"><a class="dropdown-toggle count-info"
+							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
+								<span class="label label-warning">16</span>
+						</a>
+							<ul class="dropdown-menu dropdown-messages">
+
+								<li class="divider"></li>
+								<li>
+									<div class="dropdown-messages-box">
+										<a href="profile.html" class="pull-left"> <img alt="image"
+											class="img-circle" src="/iagriculture/img/profile.jpg">
+										</a>
+										<div class="media-body ">
+											<small class="pull-right">23h ago</small> <strong>Monica
+												Smith</strong> love <strong>Kim Smith</strong>. <br> <small
+												class="text-muted">2 days ago at 2:30 am -
+												11.06.2014</small>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="text-center link-block">
+										<a href="mailbox.html"> <i class="fa fa-envelope"></i> <strong>Read
+												All Messages</strong>
+										</a>
+									</div>
+								</li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle count-info"
+							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
+								class="label label-primary">8</span>
+						</a>
+							<ul class="dropdown-menu dropdown-alerts">
+								<li class="divider"></li>
+								<li><a href="mailbox.html">
+										<div>
+											<i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+												class="pull-right text-muted small">4 minutes ago</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+
+								<li>
+									<div class="text-center link-block">
+										<a href="notifications.html"> <strong>See All
+												Alerts</strong> <i class="fa fa-angle-right"></i>
+										</a>
+									</div>
+								</li>
+							</ul></li>
+
+
+						<li><a href="login.html"> <i class="fa fa-sign-out"></i>
+								Log out
+						</a></li>
+					</ul>
+
+				</nav>
+			</div>
+			<!--start 个人主页 -->
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-9">
+					<h2>光照检测</h2>
+					<ol class="breadcrumb">
+						<li><a href="index.html">主页</a></li>
+						<li class="active"><strong>光照检测</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-3" style="height: 80px"></div>
+			</div>
+			<!--end 个人主页 -->
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+					<div class="col-lg-12">
+
+						<div class="ibox">
+							<div class="ibox-title">
+								<h5>
+									Select <small></small>
+								</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a> <a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="row">
+									<div class="col-md-6">
+										<label class="font-noraml">选择农场</label>
+										<div class="row">
+											<select id="select-farm" class="form-control col-md-12"
+												oninput="datechange(event)" onchange="datechange(event)"
+												name="account">
+												<!-- 此处填充类型选择 -->
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group" id="data_2">
+											<label class="font-noraml">选择日期</label>
+											<div class="input-group date">
+												<span class="input-group-addon"><i
+													class="fa fa-calendar"></i></span><input type="text"
+													id="select-datetime" class="form-control"
+													placeholder="日/月/年" oninput="datechange(event)"
+													onchange="datechange(event)" value="">
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>实时数据</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a> <a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content" style="height: 300px;">
+								<div class="flot-chart">
+									<div id="chart-gz-ss" style="width: 100%; height: 300px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>历史数据</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a> <a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content" style="height: 300px;">
+								<div class="flot-chart">
+									<div id="chart-gz-ls" style="width: 100%; height: 300px;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="footer">
+				<div class="pull-right">
+					10GB of <strong>250GB</strong> Free.
+				</div>
+				<div>
+					<strong>Copyright</strong> Example Company &copy; 2014-2015
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- Mainly scripts -->
+	<script src="/iagriculture/js/jquery-2.1.1.js"></script>
+	<script src="/iagriculture/js/bootstrap.min.js"></script>
+	<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script
+		src="/iagriculture/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Flot -->
+	<script src="/iagriculture/js/plugins/flot/jquery.flot.js"></script>
+	<script src="/iagriculture/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+	<script src="/iagriculture/js/plugins/flot/jquery.flot.spline.js"></script>
+	<script src="/iagriculture/js/plugins/flot/jquery.flot.resize.js"></script>
+	<script src="/iagriculture/js/plugins/flot/jquery.flot.pie.js"></script>
+
+	<!-- Peity -->
+	<script src="/iagriculture/js/plugins/peity/jquery.peity.min.js"></script>
+	<script src="/iagriculture/js/demo/peity-demo.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="/iagriculture/js/inspinia.js"></script>
+	<script src="/iagriculture/js/plugins/pace/pace.min.js"></script>
+
+	<!-- jQuery UI -->
+	<script src="/iagriculture/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+	<!-- GITTER -->
+	<script src="/iagriculture/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+	<!-- Sparkline -->
+	<script
+		src="/iagriculture/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+	<!-- Sparkline demo data  -->
+	<script src="/iagriculture/js/demo/sparkline-demo.js"></script>
+
+	<!-- ChartJS-->
+	<script src="/iagriculture/js/plugins/chartJs/Chart.min.js"></script>
+
+	<!-- Toastr -->
+	<script src="/iagriculture/js/plugins/toastr/toastr.min.js"></script>
+
+	<!-- Chosen -->
+	<script src="/iagriculture/js/plugins/chosen/chosen.jquery.js"></script>
+
+	<!-- JSKnob -->
+	<script src="/iagriculture/js/plugins/jsKnob/jquery.knob.js"></script>
+
+	<!-- Input Mask-->
+	<script src="/iagriculture/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+	<!-- Data picker -->
+	<script
+		src="/iagriculture/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+	<!-- NouSlider -->
+	<script
+		src="/iagriculture/js/plugins/nouslider/jquery.nouislider.min.js"></script>
+
+	<!-- Switchery -->
+	<script src="/iagriculture/js/plugins/switchery/switchery.js"></script>
+
+	<!-- IonRangeSlider -->
+	<script
+		src="/iagriculture/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
+
+	<!-- iCheck -->
+	<script src="/iagriculture/js/plugins/iCheck/icheck.min.js"></script>
+
+	<!-- MENU -->
+	<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+	<!-- Color picker -->
+	<script
+		src="/iagriculture/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+	<!-- Clock picker -->
+	<script src="/iagriculture/js/plugins/clockpicker/clockpicker.js"></script>
+
+	<!-- Image cropper -->
+	<script src="/iagriculture/js/plugins/cropper/cropper.min.js"></script>
+
+	<!-- Date range use moment.js same as full calendar plugin -->
+	<script src="/iagriculture/js/plugins/fullcalendar/moment.min.js"></script>
+
+	<!-- Date range picker -->
+	<script
+		src="/iagriculture/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+	<!-- Select2 -->
+	<script src="/iagriculture/js/plugins/select2/select2.full.min.js"></script>
+
+	<!-- 引入 echarts.js -->
+	<script src="/iagriculture/js/echarts.min.js"></script>
+
+	<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+		var chartss = echarts.init(document.getElementById('chart-gz-ss'));
+		var chartls = echarts.init(document.getElementById('chart-gz-ls'));
+		function getNowTime() {
+			var time = new Date(); // 程序计时的月从0开始取值后+1   
+			var m = time.getMonth() + 1;
+			var m1 = '';
+			if (m < 10) {
+				m1 = '0' + m;
+			}
+			var t = time.getFullYear() + '-' + m1 + '-' + time.getDate();
+			return t;
+		}
+
+		//绘制历史数据表
+		function addChartHistoryData(datax, datay, time) {
+			var timex = [ time ];
+			// 指定图表的配置项和数据
+			//历史数据
+			var option = {
+				title : {
+					text : '光照强度（单位：Lx）',
+					left : '50%',
+					textAlign : 'center'
+				},
+				tooltip : {
+					trigger : 'axis',
+					axisPointer : {
+						lineStyle : {
+							color : '#ddd'
+						}
+					},
+					backgroundColor : 'rgba(255,255,255,1)',
+					padding : [ 5, 10 ],
+					textStyle : {
+						color : '#7588E4',
+					},
+					extraCssText : 'box-shadow: 0 0 5px rgba(0,0,0,0.3)'
+				},
+				legend : {
+					right : 0,
+					top : 20,
+					orient : 'vertical',
+					data : [ timex[0] ]
+				},
+				xAxis : {
+					type : 'category',
+					data : datax,
+					boundaryGap : false,
+					splitLine : {
+						show : true,
+						interval : 'auto',
+						lineStyle : {
+							color : [ '#D4DFF5' ]
+						}
+					},
+					axisTick : {
+						show : false
+					},
+					axisLine : {
+						lineStyle : {
+							color : '#609ee9'
+						}
+					},
+					axisLabel : {
+						margin : 10,
+						textStyle : {
+							fontSize : 14
+						}
+					}
+				},
+				yAxis : {
+					type : 'value',
+					splitLine : {
+						lineStyle : {
+							color : [ '#D4DFF5' ]
+						}
+					},
+					axisTick : {
+						show : false
+					},
+					axisLine : {
+						lineStyle : {
+							color : '#609ee9'
+						}
+					},
+					axisLabel : {
+						margin : 10,
+						textStyle : {
+							fontSize : 14
+						}
+					}
+				},
+				series : [ {
+					name : timex[0],
+					type : 'line',
+					smooth : true,
+					showSymbol : false,
+					symbol : 'circle',
+					symbolSize : 6,
+					data : datay,
+					areaStyle : {
+						normal : {
+							color : new echarts.graphic.LinearGradient(0, 0, 0,
+									1, [ {
+										offset : 0,
+										color : 'rgba(199, 237, 250,0.5)'
+									}, {
+										offset : 1,
+										color : 'rgba(199, 237, 250,0.2)'
+									} ], false)
+						}
+					},
+					itemStyle : {
+						normal : {
+							color : '#f7b851'
+						}
+					},
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				} ]
+			};
+
+			// 使用刚指定的配置项和数据显示图表。
+			//chartss.setOption(option);
+			chartls.setOption(option);
+		}
+
+		//绘制实时数据表
+		function addChartNowData(datax, datay, time) {
+			var timex = [ time ];
+			// 指定图表的配置项和数据
+			//历史数据
+			var option = {
+				title : {
+					text : '光照强度（单位：Lx）',
+					left : '50%',
+					textAlign : 'center'
+				},
+				tooltip : {
+					trigger : 'axis',
+					axisPointer : {
+						lineStyle : {
+							color : '#ddd'
+						}
+					},
+					backgroundColor : 'rgba(255,255,255,1)',
+					padding : [ 5, 10 ],
+					textStyle : {
+						color : '#7588E4',
+					},
+					extraCssText : 'box-shadow: 0 0 5px rgba(0,0,0,0.3)'
+				},
+				legend : {
+					right : 20,
+					top : 20,
+					orient : 'vertical',
+					data : [ timex[0] ]
+				},
+				xAxis : {
+					type : 'category',
+					data : datax,
+					boundaryGap : false,
+					splitLine : {
+						show : true,
+						interval : 'auto',
+						lineStyle : {
+							color : [ '#D4DFF5' ]
+						}
+					},
+					axisTick : {
+						show : false
+					},
+					axisLine : {
+						lineStyle : {
+							color : '#609ee9'
+						}
+					},
+					axisLabel : {
+						margin : 10,
+						textStyle : {
+							fontSize : 14
+						}
+					}
+				},
+				yAxis : {
+					type : 'value',
+					splitLine : {
+						lineStyle : {
+							color : [ '#D4DFF5' ]
+						}
+					},
+					axisTick : {
+						show : false
+					},
+					axisLine : {
+						lineStyle : {
+							color : '#609ee9'
+						}
+					},
+					axisLabel : {
+						margin : 10,
+						textStyle : {
+							fontSize : 14
+						}
+					}
+				},
+				series : [ {
+					name : timex[0],
+					type : 'line',
+					smooth : true,
+					showSymbol : false,
+					symbol : 'circle',
+					symbolSize : 6,
+					data : datay,
+					areaStyle : {
+						normal : {
+							color : new echarts.graphic.LinearGradient(0, 0, 0,
+									1, [ {
+										offset : 0,
+										color : 'rgba(199, 237, 250,0.5)'
+									}, {
+										offset : 1,
+										color : 'rgba(199, 237, 250,0.2)'
+									} ], false)
+						}
+					},
+					itemStyle : {
+						normal : {
+							color : '#f7b851'
+						}
+					},
+					lineStyle : {
+						normal : {
+							width : 3
+						}
+					}
+				} ]
+			};
+
+			// 使用刚指定的配置项和数据显示图表。
+			chartss.setOption(option);
+			//chartls.setOption(option);
+		}
+	</script>
+
+
+
+	<script>
+		$(document)
+				.ready(
+						function() {
+
+							var $image = $(".image-crop > img")
+							$($image).cropper({
+								aspectRatio : 1.618,
+								preview : ".img-preview",
+								done : function(data) {
+									// Output the result data for cropping image.
+								}
+							});
+
+							var $inputImage = $("#inputImage");
+							if (window.FileReader) {
+								$inputImage
+										.change(function() {
+											var fileReader = new FileReader(), files = this.files, file;
+
+											if (!files.length) {
+												return;
+											}
+
+											file = files[0];
+
+											if (/^image\/\w+$/.test(file.type)) {
+												fileReader.readAsDataURL(file);
+												fileReader.onload = function() {
+													$inputImage.val("");
+													$image.cropper("reset",
+															true).cropper(
+															"replace",
+															this.result);
+												};
+											} else {
+												showMessage("Please choose an image file.");
+											}
+										});
+							} else {
+								$inputImage.addClass("hide");
+							}
+
+							$("#download").click(function() {
+								window.open($image.cropper("getDataURL"));
+							});
+
+							$("#zoomIn").click(function() {
+								$image.cropper("zoom", 0.1);
+							});
+
+							$("#zoomOut").click(function() {
+								$image.cropper("zoom", -0.1);
+							});
+
+							$("#rotateLeft").click(function() {
+								$image.cropper("rotate", 45);
+							});
+
+							$("#rotateRight").click(function() {
+								$image.cropper("rotate", -45);
+							});
+
+							$("#setDrag").click(function() {
+								$image.cropper("setDragMode", "crop");
+							});
+
+							$('#data_1 .input-group.date').datepicker({
+								todayBtn : "linked",
+								keyboardNavigation : false,
+								forceParse : false,
+								calendarWeeks : true,
+								autoclose : true
+							});
+
+							$('#data_2 .input-group.date').datepicker({
+								startView : 1,
+								todayBtn : "linked",
+								keyboardNavigation : false,
+								forceParse : false,
+								autoclose : true,
+								format : "dd/mm/yyyy"
+							});
+
+							$('#data_3 .input-group.date').datepicker({
+								startView : 2,
+								todayBtn : "linked",
+								keyboardNavigation : false,
+								forceParse : false,
+								autoclose : true
+							});
+
+							$('#data_4 .input-group.date').datepicker({
+								minViewMode : 1,
+								keyboardNavigation : false,
+								forceParse : false,
+								autoclose : true,
+								todayHighlight : true
+							});
+
+							$('#data_5 .input-daterange').datepicker({
+								keyboardNavigation : false,
+								forceParse : false,
+								autoclose : true
+							});
+
+							var elem = document.querySelector('.js-switch');
+							var switchery = new Switchery(elem, {
+								color : '#1AB394'
+							});
+
+							var elem_2 = document.querySelector('.js-switch_2');
+							var switchery_2 = new Switchery(elem_2, {
+								color : '#ED5565'
+							});
+
+							var elem_3 = document.querySelector('.js-switch_3');
+							var switchery_3 = new Switchery(elem_3, {
+								color : '#1AB394'
+							});
+
+							$('.i-checks').iCheck({
+								checkboxClass : 'icheckbox_square-green',
+								radioClass : 'iradio_square-green'
+							});
+
+							$('.demo1').colorpicker();
+
+							//	var divStyle = $('.back-change')[0].style;
+							/* 	$('#demo_apidemo').colorpicker({
+									color : divStyle.backgroundColor
+								}).on('changeColor', function(ev) {
+									divStyle.backgroundColor = ev.color.toHex();
+								}); */
+
+							$('.clockpicker').clockpicker();
+
+							$('input[name="daterange"]').daterangepicker();
+
+							$('#reportrange span').html(
+									moment().subtract(29, 'days').format(
+											'MMMM D, YYYY')
+											+ ' - '
+											+ moment().format('MMMM D, YYYY'));
+
+							$('#reportrange')
+									.daterangepicker(
+											{
+												format : 'MM/DD/YYYY',
+												startDate : moment().subtract(
+														29, 'days'),
+												endDate : moment(),
+												minDate : '01/01/2012',
+												maxDate : '12/31/2015',
+												dateLimit : {
+													days : 60
+												},
+												showDropdowns : true,
+												showWeekNumbers : true,
+												timePicker : false,
+												timePickerIncrement : 1,
+												timePicker12Hour : true,
+												ranges : {
+													'Today' : [ moment(),
+															moment() ],
+													'Yesterday' : [
+															moment().subtract(
+																	1, 'days'),
+															moment().subtract(
+																	1, 'days') ],
+													'Last 7 Days' : [
+															moment().subtract(
+																	6, 'days'),
+															moment() ],
+													'Last 30 Days' : [
+															moment().subtract(
+																	29, 'days'),
+															moment() ],
+													'This Month' : [
+															moment().startOf(
+																	'month'),
+															moment().endOf(
+																	'month') ],
+													'Last Month' : [
+															moment()
+																	.subtract(
+																			1,
+																			'month')
+																	.startOf(
+																			'month'),
+															moment()
+																	.subtract(
+																			1,
+																			'month')
+																	.endOf(
+																			'month') ]
+												},
+												opens : 'right',
+												drops : 'down',
+												buttonClasses : [ 'btn',
+														'btn-sm' ],
+												applyClass : 'btn-primary',
+												cancelClass : 'btn-default',
+												separator : ' to ',
+												locale : {
+													applyLabel : 'Submit',
+													cancelLabel : 'Cancel',
+													fromLabel : 'From',
+													toLabel : 'To',
+													customRangeLabel : 'Custom',
+													daysOfWeek : [ 'Su', 'Mo',
+															'Tu', 'We', 'Th',
+															'Fr', 'Sa' ],
+													monthNames : [ 'January',
+															'February',
+															'March', 'April',
+															'May', 'June',
+															'July', 'August',
+															'September',
+															'October',
+															'November',
+															'December' ],
+													firstDay : 1
+												}
+											},
+											function(start, end, label) {
+												console.log(
+														start.toISOString(),
+														end.toISOString(),
+														label);
+												$('#reportrange span')
+														.html(
+																start
+																		.format('MMMM D, YYYY')
+																		+ ' - '
+																		+ end
+																				.format('MMMM D, YYYY'));
+											});
+
+							$(".select2_demo_1").select2();
+							$(".select2_demo_2").select2();
+							$(".select2_demo_3").select2({
+								placeholder : "Select a state",
+								allowClear : true
+							});
+
+						});
+		var config = {
+			'.chosen-select' : {},
+			'.chosen-select-deselect' : {
+				allow_single_deselect : true
+			},
+			'.chosen-select-no-single' : {
+				disable_search_threshold : 10
+			},
+			'.chosen-select-no-results' : {
+				no_results_text : 'Oops, nothing found!'
+			},
+			'.chosen-select-width' : {
+				width : "95%"
+			}
+		}
+		for ( var selector in config) {
+			$(selector).chosen(config[selector]);
+		}
+
+		$("#ionrange_1").ionRangeSlider({
+			min : 0,
+			max : 5000,
+			type : 'double',
+			prefix : "$",
+			maxPostfix : "+",
+			prettify : false,
+			hasGrid : true
+		});
+
+		$("#ionrange_2").ionRangeSlider({
+			min : 0,
+			max : 10,
+			type : 'single',
+			step : 0.1,
+			postfix : " carats",
+			prettify : false,
+			hasGrid : true
+		});
+
+		$("#ionrange_3").ionRangeSlider({
+			min : -50,
+			max : 50,
+			from : 0,
+			postfix : "°",
+			prettify : false,
+			hasGrid : true
+		});
+
+		$("#ionrange_4").ionRangeSlider(
+				{
+					values : [ "January", "February", "March", "April", "May",
+							"June", "July", "August", "September", "October",
+							"November", "December" ],
+					type : 'single',
+					hasGrid : true
+				});
+
+		$("#ionrange_5").ionRangeSlider({
+			min : 10000,
+			max : 100000,
+			step : 100,
+			postfix : " km",
+			from : 55000,
+			hideMinMax : true,
+			hideFromTo : false
+		});
+
+		$(".dial").knob();
+
+		$("#basic_slider").noUiSlider({
+			start : 40,
+			behaviour : 'tap',
+			connect : 'upper',
+			range : {
+				'min' : 20,
+				'max' : 80
+			}
+		});
+
+		$("#range_slider").noUiSlider({
+			start : [ 40, 60 ],
+			behaviour : 'drag',
+			connect : true,
+			range : {
+				'min' : 20,
+				'max' : 80
+			}
+		});
+
+		$("#drag-fixed").noUiSlider({
+			start : [ 40, 60 ],
+			behaviour : 'drag-fixed',
+			connect : true,
+			range : {
+				'min' : 20,
+				'max' : 80
+			}
+		});
+
+		//装换日期格式
+		function fomatNowTime(t) {
+			var time = t.split('/');
+			return time[2] + '-' + time[1] + '-' + time[0];
+		}
+	</script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			getFarm();
+			//alert($('#select-farm').val());
+			getHistoryData('11', '2018-05-06');
+			getSSData('11');
+		});
+		//请求农场
+		function getFarm() {
+			var url = '/iagriculture/farm/all';
+			var fm = null;
+			$.ajax({
+				url : url,
+				//data:sendData,
+				type : 'GET',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						for (var i = 0; i < rdata.data.length; i++) {
+							addOptionFarm(rdata.data[i]);
+						}
+						//alert('农场号：'+rdata.data[0].farmnum);	
+						//fm=rdata.data[0].farmnum;
+					} else {
+						alert('请求失败');
+					}
+
+				}
+			});
+		}
+		//填充农场
+		function addOptionFarm(obj) {
+			var rowoptfarm = '<option value="'+obj.farmnum+'">' + obj.farmname
+					+ '</option>'
+			$('#select-farm').append(rowoptfarm);
+		}
+
+		//请求历史数据
+		function getHistoryData(fnum, time) {
+			//alert('fnum'+fnum);
+			var url = '/iagriculture/data/time';
+			var sendData = {
+				'farmNum' : fnum,
+				'time' : time,
+				'typeId' : 1
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						var datax = [];
+						var datay = [];
+						for (var i = 0; i < rdata.data.length; i++) {
+							var t = rdata.data[i].createTime.split(' ');
+							datax.push(t[1]);
+							datay.push(rdata.data[i].data);
+						}
+						//alert(datax[rdata.data.length-1]);
+						addChartHistoryData(datax, datay, time);
+						//alert('请求成功');
+					} else {
+						alert('请求失败');
+					}
+				}
+			});
+		}
+
+		//请求实时数据
+		function getSSData(fnum) {
+			//alert('fnum'+fnum);
+			var url = '/iagriculture/data/time';
+			var nowtime = getNowTime();
+			//alert(nowtime);
+			var sendData = {
+				'farmNum' : fnum,
+				'time' : nowtime,
+				'typeId' : 1
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						var datax = [];
+						var datay = [];
+						for (var i = 0; i < rdata.data.length; i++) {
+							var t = rdata.data[i].createTime.split(' ');
+							datax.push(t[1]);
+							datay.push(rdata.data[i].data);
+						}
+						//alert(datax[rdata.data.length-1]);
+						addChartNowData(datax, datay, nowtime);
+					} else {
+						alert('请求失败');
+					}
+				}
+			});
+		}
+
+		setInterval("getSSData($('#select-farm').val())", 10000);
+
+		//时间   农场选择框改变事件
+		function datechange(e) {
+			//alert($('#select-farm').val());
+			getHistoryData($('#select-farm').val(), fomatNowTime($(
+					'#select-datetime').val()));
+			getSSData($('#select-farm').val());
+		}
+	</script>
+
+</body>
+
+</html>

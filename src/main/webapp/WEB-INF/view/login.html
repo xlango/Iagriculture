@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INSPINIA | Login</title>
+
+<link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
+<link href="/iagriculture/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/animate.css" rel="stylesheet">
+<link href="/iagriculture/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+	<div class="middle-box text-center loginscreen animated fadeInDown">
+		<div>
+			<div>
+
+				<h1 class="logo-name">IA</h1>
+
+			</div>
+			<h3>Welcome to IA</h3>
+			<p>Login in. To see it in action.</p>
+			<div class="form-group">
+				<input id="phone" class="form-control" placeholder="PhoneNumber"
+					required="">
+			</div>
+			<div class="form-group">
+				<input id="password" type="password" class="form-control"
+					placeholder="Password" required="">
+			</div>
+			<button id="login" type="submit"
+				class="btn btn-primary block full-width m-b">Login</button>
+
+			<a href="#"><small>Forgot password?</small></a>
+			<p class="text-muted text-center">
+				<small>Do not have an account?</small>
+			</p>
+			<a class="btn btn-sm btn-white btn-block" href="register.html">Create
+				an account</a>
+			<p class="m-t">
+				<small>Inspinia we app framework base on Bootstrap 3 &copy;
+					2014</small>
+			</p>
+		</div>
+	</div>
+
+	<!-- Mainly scripts -->
+	<script src="/iagriculture/js/jquery-2.1.1.js"></script>
+	<script src="/iagriculture/js/bootstrap.min.js"></script>
+	
+	<script src="/iagriculture/js/plugins/sweetalert/sweetalert.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#login').click(function(event) {
+				var url = '/iagriculture/user/dologin';
+				var sendData = {
+					'phone' : $('#phone').val(),
+					'pwd' : $('#password').val()
+				};
+				$.ajax({
+					url : url,
+					data : sendData,
+					type : 'POST',
+					dataType : "text",
+					success : function(d) {
+						var rdata = JSON.parse(d);
+						if (rdata.code == 0) {
+							swal("登录!", "登录成功:)", "success");
+							toIndex();
+						} else {
+							swal("失败", "登录失败，密码或账号不正确:(", "error");
+						}
+					}
+				});
+			});
+		});
+
+		function toIndex() {
+			$(location).attr('href', '/iagriculture/index/');//跳转至主界面
+		}
+	</script>
+</body>
+
+</html>

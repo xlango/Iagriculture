@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration 
+	DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"> -->		
+		<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	    <!-- 第一部分，配置数据库信息（必须的），现交给spring管理， -->
+		<!-- <property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql:///spring_hibernate</property> -->
+		
+		<!-- 第二部分，配置hibernate信息（可选的） -->
+		<!-- 输出底层sql语句 -->
+		<property name="show_sql">true</property>
+		<!-- 输出底层sql语句格式 -->
+		<property name="format_sql">true</property>
+		<!-- hibernate帮创建表，需要配置之后
+		     update：如果已经有表，更新，如果没有，创建 -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- 
+		配置数据库方言
+		在mysql里面实现分页 关键字limit。只能使用在MySQL里面
+		在Oracle数据库，实现分页rownum
+		让hibernate框架识别不同数据库的自己特有的语句
+		 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+
+		<!-- 第三部分 ：那映射文件放到核心配置文件中（必须的）现用注解方式 -->
+		<!-- <mapping resource="com/ia/entity/Person.hbm.xml" /> -->
+	</session-factory>
+</hibernate-configuration>

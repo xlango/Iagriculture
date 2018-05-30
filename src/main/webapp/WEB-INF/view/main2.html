@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录界面</title>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="/iagriculture/css/bootstrap.css">
+<link rel="stylesheet" href="/iagriculture/iconfont/style.css"
+	type="text/css">
+<style>
+body {
+	color: #fff;
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+
+.wrap1 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto
+} /*把整个屏幕真正撑开--而且能自己实现居中*/
+.main_content {
+	background: url(/iagriculture/images/main_bg.png) repeat;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	float: none;
+	border-radius: 8px;
+}
+
+.form-group {
+	position: relative;
+}
+
+.login_btn {
+	display: block;
+	background: #3872f6;
+	color: #fff;
+	font-size: 15px;
+	width: 100%;
+	line-height: 50px;
+	border-radius: 3px;
+	border: none;
+}
+
+.login_input {
+	width: 100%;
+	border: 1px solid #3872f6;
+	border-radius: 3px;
+	line-height: 40px;
+	padding: 2px 5px 2px 30px;
+	background: none;
+}
+
+.icon_font {
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	font-size: 18px;
+	color: #3872f6;
+}
+
+.font16 {
+	font-size: 16px;
+}
+
+.mg-t20 {
+	margin-top: 20px;
+}
+
+@media ( min-width :200px) {
+	.pd-xs-20 {
+		padding: 20px;
+	}
+}
+
+@media ( min-width :768px) {
+	.pd-sm-50 {
+		padding: 50px;
+	}
+}
+
+#grad {
+	background: -webkit-linear-gradient(#4990c1, #52a3d2, #6186a3);
+	/* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#4990c1, #52a3d2, #6186a3);
+	/* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#4990c1, #52a3d2, #6186a3);
+	/* Firefox 3.6 - 15 */
+	background: linear-gradient(#4990c1, #52a3d2, #6186a3); /* 标准的语法 */
+}
+</style>
+
+</head>
+
+<body style="background: url(/iagriculture/images/bg.jpg) no-repeat;">
+
+	<div class="container wrap1" style="height: 450px;">
+		<h2 class="mg-b20 text-center">主页面</h2>
+		<div
+			class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
+			<p class="text-center font16">发送设备号：</p>
+			<form>
+				<div class="container">
+					<div>
+						<input type="text" class="btn-default" id="input-nowtime"
+							style="width: 300px; height: 35px; margin-left: 0px;">
+						<button id="btn-nowtime" class="btn btn-default"
+							onclick="getNowtime()">Now</button>
+					</div>
+					<div id="staticnowtime">
+						<h3>儿童儿童</h3>
+					</div>
+				</div>
+			</form>
+
+		</div>
+		<!--row end-->
+	</div>
+	<!--container end-->
+</body>
+<script src="/iagriculture/js/jquery-2.1.1.min.js"></script>
+<script src="/iagriculture/js/my/login.js"></script>
+</html>

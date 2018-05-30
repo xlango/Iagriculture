@@ -1,0 +1,180 @@
+
+.box {
+
+    border: none;
+
+    zoom: 1;
+
+    position:fixed;
+
+    right:20px;
+
+    top:20%;
+
+
+    margin-left: 92%;
+
+    margin-top: 20%;
+
+
+}
+
+.box ul li {
+
+    width: 48px;
+
+    display: block;
+
+    height: 50px;
+
+    padding: 2px;
+
+    overflow: hidden
+
+}
+
+.weixin {
+
+    background: url(/img/elevator.png) no-repeat;
+
+    background-position: 0 87%;
+
+    -webkit-transition: all .3s;
+
+    -moz-transition: all .3s;
+
+    -ms-transition: all .3s;
+
+    -o-transition: all .3s;
+
+}
+
+.weixin:hover {
+
+    background-position: 0 93%
+
+}
+
+.weixin:hover .weixin-logo {
+
+    width: 170px;
+
+    height: 204px;
+
+}
+
+.idea {
+
+    background: url(/img/elevator.png) no-repeat;
+
+    background-position: 0 43%;
+
+    -webkit-transition: all .3s;
+
+    -moz-transition: all .3s;
+
+    -ms-transition: all .3s;
+
+    -o-transition: all .3s;
+
+}
+
+.idea:hover {
+
+    background-position: 0 49%;
+
+}
+
+.app {
+
+    background: url(/img/elevator.png) no-repeat;
+
+    background-position: 0 55%;
+
+    -webkit-transition: all .3s;
+
+    -moz-transition: all .3s;
+
+    -ms-transition: all .3s;
+
+    -o-transition: all .3s;
+
+}
+
+.app:hover {
+
+    background-position: 0 61%;
+
+}
+
+.app:hover .app-logo {
+
+    width: 170px;
+
+    height: 185px;
+
+    -webkit-transform: rotate(360deg);
+
+    -moz-transform: rotate(360deg);
+
+    -ms-transform: rotate(360deg);
+
+    -o-transform: rotate(360deg);
+
+}
+
+.weixin-logo {
+
+    background: url(/img/elevator.png) no-repeat;
+
+    background-position: 0 0;
+
+    width: 0px;
+
+    height: 0px;
+
+    overflow: hidden;
+
+    position: absolute;
+
+    top: -154px;
+
+    left: -171px;
+
+    -webkit-transition: all .3s;
+
+    -moz-transition: all .3s;
+
+    -ms-transition: all .3s;
+
+    -o-transition: all .3s;
+
+}
+
+.app-logo {
+
+    background: url(/img/elevator.png) no-repeat;
+
+    background-position: 0 26%;
+
+    width: 0px;
+
+    height: 0px;
+
+    overflow: hidden;
+
+    position: absolute;
+
+    top: -18px;
+
+    left: -171px;
+
+    -webkit-transition: all .3s;
+
+    -moz-transition: all .3s;
+
+    -ms-transition: all .3s;
+
+    -o-transition: all .3s;
+
+}

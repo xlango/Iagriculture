@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 开启扫描 -->
+	<context:component-scan base-package="com.ia">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+    <!-- AOP -->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!-- 数据库连接配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 配置属性 -->
+		<property name="driverClass" value="${jdbc.driverClassName}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+<!-- 		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property> -->
+	</bean>
+
+	<!-- sessionFactory创建交给spring管理 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- 因为在hibernate核心配置文件中，没有数据库配置，数据库配置在spring核心配置文件中配置，注入dataSource -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定hibernate核心配置文件 -->
+		<property name="configLocations" value="classpath:hibernate.cfg.xml"></property>
+		<!-- 扫描entity下的包中注解 -->
+		<property name="packagesToScan">
+		    <list>
+		       <value>com.ia..entity</value>
+		    </list>
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 开启事务的注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+    
+</beans>

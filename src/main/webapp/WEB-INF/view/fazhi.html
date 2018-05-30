@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INSPINIA | Data Tables</title>
+
+<link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
+<link href="/iagriculture/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
+
+<!-- Data Tables -->
+<link
+	href="/iagriculture/css/plugins/dataTables/dataTables.bootstrap.css"
+	rel="stylesheet">
+<link
+	href="/iagriculture/css/plugins/dataTables/dataTables.responsive.css"
+	rel="stylesheet">
+<link
+	href="/iagriculture/css/plugins/dataTables/dataTables.tableTools.min.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/animate.css" rel="stylesheet">
+<link href="/iagriculture/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<span> <img alt="image" class="img-circle"
+								src="/iagriculture/img/profile_small.jpg" />
+							</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="clear"> <span class="block m-t-xs"> <strong
+										class="font-bold">David Williams</strong>
+								</span> <span class="text-muted text-xs block">Art Director <b
+										class="caret"></b></span>
+							</span>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight m-t-xs">
+								<li><a href="profile.html">Profile</a></li>
+								<li><a href="contacts.html">Contacts</a></li>
+								<li><a href="mailbox.html">Mailbox</a></li>
+								<li class="divider"></li>
+								<li><a href="login.html">Logout</a></li>
+							</ul>
+						</div>
+						<div class="logo-element">IN+</div>
+					</li>
+					<li><a href="/iagriculture/index/"><i
+							class="fa fa-th-large"></i> <span class="nav-label">个人主页</span></a></li>
+					<li class="active"><a href="/iagriculture/index/fazhi"><i
+							class="fa fa-flask"></i> <span class="nav-label">数据管理</span></a></li>
+					<li><a href="/iagriculture/index/shebei"><i
+							class="fa fa-flask"></i> <span class="nav-label">设备管理</span></a></li>
+					<li><a href="/iagriculture/index/light"><i
+							class="fa fa-diamond"></i> <span class="nav-label">光照检测</span></a></li>
+					<li><a href="/iagriculture/index/daqiya"><i
+							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
+					<li><a href="/iagriculture/index/shuifen"><i
+							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+					<li><a href="/iagriculture/index/kqwendu"><i
+							class="fa fa-pie-chart"></i> <span class="nav-label">空气温湿度检测</span>
+					</a></li>
+					<li><a href="/iagriculture/index/trwendu"><i
+							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
+					<li><a href="/iagriculture/index/yewei"><i
+							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
+					<li><a href="/iagriculture/index/yushui"><i
+							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>
+					<li><a href="/iagriculture/index/co2"><i
+							class="fa fa-globe"></i> <span class="nav-label">二氧化碳浓度</span></a></li>
+				</ul>
+
+			</div>
+		</nav>
+
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation"
+					style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary "
+							href="#"><i class="fa fa-bars"></i> </a>
+						<form role="search" class="navbar-form-custom"
+							action="search_results.html">
+							<div class="form-group">
+								<input type="text" placeholder="Search for something..."
+									class="form-control" name="top-search" id="top-search">
+							</div>
+						</form>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li><span class="m-r-sm text-muted welcome-message">Welcome
+								to INSPINIA+ Admin Theme.</span></li>
+						<li class="dropdown"><a class="dropdown-toggle count-info"
+							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
+								<span class="label label-warning">16</span>
+						</a>
+							<ul class="dropdown-menu dropdown-messages">
+								<li>
+									<div class="dropdown-messages-box">
+										<a href="profile.html" class="pull-left"> <img alt="image"
+											class="img-circle" src="img/a7.jpg">
+										</a>
+										<div class="media-body">
+											<small class="pull-right">46h ago</small> <strong>Mike
+												Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+											<small class="text-muted">3 days ago at 7:58 pm -
+												10.06.2014</small>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="dropdown-messages-box">
+										<a href="profile.html" class="pull-left"> <img alt="image"
+											class="img-circle" src="img/a4.jpg">
+										</a>
+										<div class="media-body ">
+											<small class="pull-right text-navy">5h ago</small> <strong>Chris
+												Johnatan Overtunk</strong> started following <strong>Monica
+												Smith</strong>. <br> <small class="text-muted">Yesterday
+												1:21 pm - 11.06.2014</small>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="dropdown-messages-box">
+										<a href="profile.html" class="pull-left"> <img alt="image"
+											class="img-circle" src="img/profile.jpg">
+										</a>
+										<div class="media-body ">
+											<small class="pull-right">23h ago</small> <strong>Monica
+												Smith</strong> love <strong>Kim Smith</strong>. <br> <small
+												class="text-muted">2 days ago at 2:30 am -
+												11.06.2014</small>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="text-center link-block">
+										<a href="mailbox.html"> <i class="fa fa-envelope"></i> <strong>Read
+												All Messages</strong>
+										</a>
+									</div>
+								</li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle count-info"
+							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
+								class="label label-primary">8</span>
+						</a>
+							<ul class="dropdown-menu dropdown-alerts">
+								<li><a href="mailbox.html">
+										<div>
+											<i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+												class="pull-right text-muted small">4 minutes ago</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="profile.html">
+										<div>
+											<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span
+												class="pull-right text-muted small">12 minutes ago</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="grid_options.html">
+										<div>
+											<i class="fa fa-upload fa-fw"></i> Server Rebooted <span
+												class="pull-right text-muted small">4 minutes ago</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+								<li>
+									<div class="text-center link-block">
+										<a href="notifications.html"> <strong>See All
+												Alerts</strong> <i class="fa fa-angle-right"></i>
+										</a>
+									</div>
+								</li>
+							</ul></li>
+
+
+						<li><a href="login.html"> <i class="fa fa-sign-out"></i>
+								Log out
+						</a></li>
+					</ul>
+
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-9">
+					<h2>数据管理</h2>
+					<ol class="breadcrumb">
+						<li><a href="index.html">主页</a></li>
+						<li class="active"><strong>数据管理</strong></li>
+					</ol>
+				</div>
+				<div class="col-lg-3" style="height: 80px"></div>
+			</div>
+			<div class="wrapper wrapper-content animated fadeInRight">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>农场</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+									<a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="">
+									<button type="button" class="btn btn-primary"
+										data-toggle="modal" data-target="#myModal-farm">添加农场</button>
+								</div>
+								<table class="table" id="editable-farm">
+									<thead>
+										<tr>
+											<th>id</th>
+											<th>农场号</th>
+											<th>农场名</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="table-farm">
+										<!-- 此处填充农场 -->
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>数据类型</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+									<a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="">
+									<button type="button" class="btn btn-primary"
+										data-toggle="modal" data-target="#myModal-dt">添加类型</button>
+								</div>
+								<table class="table" id="editable-type">
+									<thead>
+										<tr>
+											<th>id</th>
+											<th>数据类型</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="table-dt">
+										<!-- 此处填充数据类型 -->
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>检测数据</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+									<a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="">
+									<button type="button" id="loading-example-btn"
+										class="btn btn-white btn-sm">
+										<i class="fa fa-refresh"></i> 刷新
+									</button>
+								</div>
+								<table class="table table-striped table-bordered table-hover "
+									id="editable">
+									<thead>
+										<tr>
+											<th>id</th>
+											<th>农场号</th>
+											<th>上传时间</th>
+											<th>设备号</th>
+											<th>数据类型</th>
+											<th>数据值</th>
+										</tr>
+									</thead>
+									<tbody id="table-data">
+										<!-- 此处填充数据 -->
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>id</th>
+											<th>farmNum</th>
+											<th>createTime</th>
+											<th>devNum</th>
+											<th>typeId</th>
+											<th>data</th>
+										</tr>
+									</tfoot>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>阀值</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+										<a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="form-group" id="table-fz">
+									<!-- 此处填充阀值 -->
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-lg-6">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<h5>设置阀值</h5>
+								<div class="ibox-tools">
+									<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+									<a class="close-link"> <i class="fa fa-times"></i>
+									</a>
+								</div>
+							</div>
+							<div class="ibox-content">
+								<div class="form-group" id="data_5">
+									<label class="font-noraml">选择类型</label> <select
+										id="select-fz-dt" class="form-control m-b" name="account">
+										<!-- 此处填充类型选择 -->
+									</select>
+									<div class="input-daterange input-group" id="datepicker">
+										<input type="text" class="input-sm form-control"
+											id="input-fz-start" placeholder=""> <span
+											class="input-group-addon">to</span> <input type="text"
+											class="input-sm form-control" id="input-fz-end"
+											placeholder="">
+									</div>
+									<button id="btn-save-fz" type="button"
+										class="btn btn-block btn-outline btn-primary"
+										style="margin-top: 20px">保存</button>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="pull-right">
+					10GB of <strong>250GB</strong> Free.
+				</div>
+				<div>
+					<strong>Copyright</strong> Example Company &copy; 2014-2015
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!--start 模态窗 -->
+	<div class="modal inmodal" id="myModal-farm" tabindex="-1"
+		role="dialog" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">添加农场</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>农场号 </label> <input id="input-add-farmNum"
+							name="input-add-farmNum" type="text"
+							class="form-control required error" aria-required="true"
+							aria-invalid="true">
+					</div>
+					<div class="form-group">
+						<label>农场名</label> <input id="input-add-farmName"
+							name="input-add-farmName" type="text"
+							class="form-control required error" aria-required="true"
+							aria-invalid="true">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="btn-save-farm">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal inmodal" id="myModal-dt" tabindex="-1" role="dialog"
+		aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content animated flipInY">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">添加类型</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>数据类型</label> <input id="input-add-typeName"
+							name="input-add-typeName" type="text"
+							class="form-control required error" aria-required="true"
+							aria-invalid="true">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="btn-save-dt">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end 模态窗 -->
+
+
+	<!-- Mainly scripts -->
+	<script src="/iagriculture/js/jquery-2.1.1.js"></script>
+	<script src="/iagriculture/js/bootstrap.min.js"></script>
+	<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script
+		src="/iagriculture/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="/iagriculture/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+	<!-- Data Tables -->
+	<script src="/iagriculture/js/plugins/dataTables/jquery.dataTables.js"></script>
+	<script
+		src="/iagriculture/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+	<script
+		src="/iagriculture/js/plugins/dataTables/dataTables.responsive.js"></script>
+	<script
+		src="/iagriculture/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+
+	<!-- Custom and plugin javascript -->
+	<script src="/iagriculture/js/inspinia.js"></script>
+	<script src="/iagriculture/js/plugins/pace/pace.min.js"></script>
+
+	<script src="/iagriculture/js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script>
+		function alertDelete(obj) {
+			swal({
+				title : "您确定要删除吗?",
+				text : "删除数据后将无法恢复",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonColor : "#DD6B55",
+				confirmButtonText : "Yes, 删除它!",
+				cancelButtonText : "No, 取消!",
+				closeOnConfirm : false,
+				closeOnCancel : false
+			}, function(isConfirm) {
+				if (isConfirm) {
+					deleteFarm(obj);
+				} else {
+					swal("取消", "取消删除:(", "error");
+				}
+			});
+		}
+
+		function alertSuccess() {
+			swal({
+				title : "Good job!",
+				text : "您的操作成功!",
+				type : "success"
+			});
+		}
+	</script>
+	<!-- Page-Level Scripts -->
+	<script>
+		$(document).ready(function() {
+			//获取所有农场
+			getFarm();
+			//获取所有数据类型
+			getDataType();
+			//获取所有数据
+			getData();
+		});
+		//请求农场
+		function getFarm() {
+			var url = '/iagriculture/farm/all';
+			$.ajax({
+				url : url,
+				//data:sendData,
+				type : 'GET',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						for (var i = 0; i < rdata.data.length; i++) {
+							addRowFarm(rdata.data[i])
+						}
+					} else {
+						alert('请求失败');
+					}
+				}
+			});
+		}
+		//添加一行农场
+		function addRowFarm(farm) {
+			var rowfarm = '<tr><td>'
+					+ farm.id
+					+ '</td>'
+					+ '<td>'
+					+ farm.farmnum
+					+ '</td>'
+					+ '<td>'
+					+ farm.farmname
+					+ '</td>'
+					+ '<td><button id="farm-'
+					+ farm.id
+					+ '" class="btn btn-danger btn-sm" onclick="deleteFarm(this)"><i class="fa fa-trash-o"></i></button> '
+					+ '<a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i>'
+					+ '编辑 </a></td></tr>';
+			$('#table-farm').append(rowfarm);
+		}
+
+		//请求数据类型
+		function getDataType() {
+			var url = '/iagriculture/datatype/all';
+			$.ajax({
+				url : url,
+				//data:sendData,
+				type : 'GET',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						for (var i = 0; i < rdata.data.length; i++) {
+							addRowDataType(rdata.data[i]);
+							getFaZhi(rdata.data[i]);
+						}
+					} else {
+						alert('请求失败');
+					}
+				}
+			});
+		}
+		//添加一行数据类型
+		function addRowDataType(datatype) {
+			var rowdatatype = '<tr><td>'
+					+ datatype.id
+					+ '</td>'
+					+ '<td>'
+					+ datatype.typeName
+					+ '</td>'
+					+ '<td><button id="datatype-'
+					+ datatype.id
+					+ '" class="btn btn-danger btn-sm" onclick="deleteDataType(this)"><i class="fa fa-trash-o"></i></button> '
+					+ '<a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i>'
+					+ '编辑 </a></td></tr>';
+			var selectdt = '<option value="'+datatype.id+'">'
+					+ datatype.typeName + '</option>';
+			$('#table-dt').append(rowdatatype);
+			$('#select-fz-dt').append(selectdt);
+		}
+
+		//请求数据
+		function getData() {
+			var url = '/iagriculture/data/all';
+			$.ajax({
+				url : url,
+				//data:sendData,
+				type : 'GET',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						for (var i = 0; i < rdata.data.length; i++) {
+							addRowData(rdata.data[i])
+						}
+					} else {
+						alert('请求失败');
+					}
+				}
+			});
+		}
+		//添加一行数据
+		function addRowData(data) {
+			$('#editable').dataTable().fnAddData(
+					[ data.id, data.farmNum, data.createTime, data.devNum,
+							data.typeId, data.data ]);
+		}
+
+		//添加农场
+		$('#btn-save-farm').click(function() {
+			var url = '/iagriculture/farm/add';
+			var sendData = {
+				'farmnum' : $('#input-add-farmNum').val(),
+				'farmname' : $('#input-add-farmName').val()
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						alertSuccess();
+						$('#myModal-farm').modal('hide');
+						$('#table-farm').empty();
+						getFarm();
+					} else {
+						alert('该农场已经存在');
+					}
+				}
+			});
+		});
+		//删除农场
+		function deleteFarm(obj) {
+			var url = '/iagriculture/farm/delete';
+			var id = obj.id.split('-');
+			var sendData = {
+				'id' : id[1]
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						swal("已删除!", "删除成功:)", "success");
+						$('#table-farm').empty();
+						getFarm();
+					} else {
+						swal("失败", "删除失败:(", "error");
+					}
+				}
+
+			});
+		}
+
+		//添加数据类型
+		$('#btn-save-dt').click(function() {
+			var url = '/iagriculture/datatype/add';
+			var sendData = {
+				'typeName' : $('#input-add-typeName').val()
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						alertSuccess();
+						$('#myModal-dt').modal('hide');
+						$('#table-dt').empty();
+						$('#table-fz').empty();
+						$('#select-fz-dt').empty();
+						getDataType();
+					} else {
+						alert('该数据类型已经存在');
+					}
+				}
+			});
+		});
+		//删除数据类型
+		function deleteDataType(obj) {
+			var url = '/iagriculture/datatype/delete';
+			var id = obj.id.split('-');
+			var sendData = {
+				'id' : id[1]
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						swal("已删除!", "删除成功:)", "success");
+						$('#table-dt').empty();
+						$('#table-fz').empty();
+						$('#select-fz-dt').empty();
+						getDataType();
+					} else {
+						swal("失败", "删除失败:(", "error");
+					}
+				}
+
+			});
+		}
+
+		//修改阀值
+		$('#btn-save-fz').click(function() {
+			var url = '/iagriculture/datatype/update';
+			var sendData = {
+				'id' : $('#select-fz-dt').val(),
+				'typeName' : $('#select-fz-dt').find("option:selected").text(),
+				'fzStart' : $('#input-fz-start').val(),
+				'fzEnd' : $('#input-fz-end').val()
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						$('#table-dt').empty();
+						$('#table-fz').empty();
+						$('#select-fz-dt').empty();
+						getDataType();
+						swal("已修改!", "修改成功:)", "success");
+					} else {
+						swal("失败", "修改失败:(", "error");
+					}
+				}
+			});
+		});
+		//显示阀值
+		function getFaZhi(obj) {
+			var rowfz = '<label class="font-noraml">'
+					+ obj.typeName
+					+ '</label>'
+					+ '<div class="input-daterange input-group" id="datepicker">'
+					+ '<input type="text" class="input-sm form-control"'+
+				'disabled="disabled" value="'+obj.fzStart+'"> <span'+
+			'	class="input-group-addon">to</span> <input type="text"'+
+			'	class="input-sm form-control" disabled="disabled"'+
+			'	value="'+obj.fzEnd+'"></div>';
+			$('#table-fz').append(rowfz);
+		}
+
+		//data表个控制
+		$(document)
+				.ready(
+						function() {
+							$('.dataTables-example')
+									.DataTable(
+											{
+												"dom" : 'lTfigt',
+												"tableTools" : {
+													"sSwfPath" : "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+												}
+											});
+
+							/* Init DataTables */
+							var oTable = $('#editable').dataTable({
+								'sPaginationType' : 'full_numbers'
+							});
+
+							/* Apply the jEditable handlers to the table */
+							/* oTable
+									.$('td')
+									.editable(
+											'../example_ajax.php',
+											{
+												"callback" : function(sValue, y) {
+													var aPos = oTable
+															.fnGetPosition(this);
+													oTable.fnUpdate(sValue,
+															aPos[0], aPos[1]);
+												},
+												"submitdata" : function(value,
+														settings) {
+													return {
+														"row_id" : this.parentNode
+																.getAttribute('id'),
+														"column" : oTable
+																.fnGetPosition(this)[2]
+													};
+												},
+
+												"width" : "90%",
+												"height" : "100%"
+											});
+							 */
+						});
+		/* 
+		 function fnClickAddRow() {
+		 $('#editable').dataTable()
+		 .fnAddData(
+		 [ "Custom row", "New row", "New row", "New row",
+		 "New row" ]);
+
+		 } */
+
+		//刷新按钮
+		$(document).ready(function() {
+
+			$('#loading-example-btn').click(function() {
+				btn = $(this);
+				simpleLoad(btn, true)
+
+				// Ajax example
+				//                $.ajax().always(function () {
+				//                    simpleLoad($(this), false)
+				//                });
+
+				simpleLoad(btn, false)
+			});
+		});
+
+		function simpleLoad(btn, state) {
+			if (state) {
+				btn.children().addClass('fa-spin');
+				btn.contents().last().replaceWith(" Loading");
+				$('#editable').dataTable().fnClearTable(); //清空一下table
+				$('#editable').dataTable().fnDestroy(); //还原初始化了的datatable
+				getData();
+			} else {
+				setTimeout(function() {
+					btn.children().removeClass('fa-spin');
+					btn.contents().last().replaceWith("刷新");
+				}, 2000);
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>
