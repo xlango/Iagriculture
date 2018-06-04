@@ -425,6 +425,25 @@
 			return t;
 		}
 
+		var mindata = 0;
+		var maxdata = 0;
+		//获取阀值
+		$.ajax({
+			url : '/iagriculture/datatype/typename',
+			data:{'typeName':'二氧化碳浓度'},
+			type : 'POST',
+			dataType : "text",
+			success : function(d) {
+				var rdata = JSON.parse(d);
+				if (rdata.code == 0) {					
+					mindata=rdata.data.fzStart;
+					maxdata=rdata.data.fzEnd;											
+				} else {
+					alert('请求失败');
+				}
+
+			}
+		});
 		//绘制历史数据表
 		function addChartHistoryData(datax, datay, time) {
 			var timex = [ time ];
@@ -536,8 +555,8 @@
 					},
 					markLine: {
 						data : [
-		                    { name: '最小值',yAxis:10},
-		                    { name: '最大值',yAxis:100}
+							{ name: '最小值',yAxis:mindata},
+		                    { name: '最大值',yAxis:maxdata}
 		                ]
 		            }
 				} ]
@@ -659,8 +678,8 @@
 					},
 					markLine: {
 						data : [
-		                    { name: '最小值',yAxis:10},
-		                    { name: '最大值',yAxis:100}
+							{ name: '最小值',yAxis:mindata},
+		                    { name: '最大值',yAxis:maxdata}
 		                ]
 		            }
 				} ]

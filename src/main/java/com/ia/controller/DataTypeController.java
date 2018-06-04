@@ -58,4 +58,10 @@ public class DataTypeController {
 		dataTypeService.update(d);
 		return ResultUtil.success();					
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/typename", method = RequestMethod.POST)
+	public Result getbyName(DataType d) {	
+		return ResultUtil.success(dataTypeService.getbyName(d.getTypeName()));					
+	}
 }

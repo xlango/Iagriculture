@@ -21,4 +21,5 @@ public interface IDataTypeDao {
 	public List<DataType> gets();
 
 	public DataType getbyName(String typeName);
+		
 }
