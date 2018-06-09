@@ -1,19 +1,16 @@
 package com.ia.server;
 
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.sql.DriverManager;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import com.ia.entity.Data;
-import com.ia.service.IDataService;
 import com.ia.utils.DataUtil;
+import com.ia.utils.SendMsg;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
@@ -87,9 +84,6 @@ class RunThread implements Runnable {
 				Thread.sleep(100);
 			}
 
-			//DataInputStream din = new DataInputStream(socket.getInputStream());
-			
-			//byte[] bytes = new byte[1024]; // 假设发送的字节数不超过 1024 个
 			
 
 			while (isRun) {
@@ -100,6 +94,7 @@ class RunThread implements Runnable {
 					realyData = bytesToHex(buff, 0, size, " ");
 					Data d = DataUtil.analysisData(realyData);
 					//System.out.println("真实数据類型：" + d.getTypeId());
+					alert(d);
 					add(d);//添加一条数据
 					System.out.println("真实数据：" + realyData);
 				}
@@ -161,6 +156,38 @@ class RunThread implements Runnable {
             e.printStackTrace();
         }
         return i;//返回影响的行数，1为执行成功
+    }
+    
+    /**
+	 * 警报
+	 * */
+    public static void alert(Data data) {
+        Statement stmt = null;
+        String sql=" select * from  datatype where id="+data.getTypeId();
+        DBConnection db = new DBConnection();
+        try {        
+        	 stmt =db.conn.createStatement(); 
+        	 ResultSet rs = stmt.executeQuery(sql);
+             
+             // 展开结果集数据库
+             while(rs.next()){
+                 // 通过字段检索
+                 Double fzmin = rs.getDouble("fzStart");
+                 Double fzmax = rs.getDouble("fzEnd");
+     
+                 // 输出数据
+                 System.out.print("最小值: " + fzmin);
+                 System.out.print("最大值: " + fzmax);
+                 
+                 //发送报警短信
+                 SendMsg.sendSms("17341930058", "向元浪", "50");
+             }
+             // 完成后关闭
+             rs.close();
+             stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

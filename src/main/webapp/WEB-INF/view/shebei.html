@@ -231,7 +231,7 @@
 											<th>id</th>
 											<th>农场号</th>
 											<th>农场名</th>
-											<th>情景模式（0：手动    1：自动）</th>
+											<th>情景模式（0：手动 1：自动）</th>
 											<th>操作</th>
 											<th>状态检测</th>
 										</tr>
@@ -263,6 +263,7 @@
 										class="btn btn-white btn-sm">
 										<i class="fa fa-refresh"></i> 刷新
 									</button>
+									<b><font color="red">（提示：双击行删除设备）</font></b>
 									<button type="button" class="btn btn-primary pull-right"
 										data-toggle="modal" data-target="#myModal-dev">添加设备</button>
 								</div>
@@ -271,9 +272,8 @@
 									<thead>
 										<tr>
 											<th>id</th>
-											<th>农场号</th>
+											<th>农场id</th>
 											<th>设备号</th>
-											<th>操作</th>											
 										</tr>
 									</thead>
 									<tbody id="table-dev">
@@ -282,9 +282,8 @@
 									<tfoot>
 										<tr>
 											<th>id</th>
-											<th>farmNum</th>
+											<th>farmId</th>
 											<th>devNum</th>
-											<th>operate</th>
 										</tr>
 									</tfoot>
 								</table>
@@ -294,24 +293,8 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="ibox float-e-margins">
-							<div class="ibox-title">
-								<h5>设备状态检测</h5>
-								<div class="ibox-tools">
-									<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
-									<a class="close-link"> <i class="fa fa-times"></i>
-									</a>
-								</div>
-							</div>
-							<div class="ibox-content">
-								<div class="form-group" id="table-fz">
-									<!-- 此处填充阀值 -->
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="row" id="dev-state">
+					<!-- 此处填充 -->
 				</div>
 			</div>
 			<div class="footer">
@@ -339,9 +322,9 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>农场号 </label> 
-						<select id="select-farm" class="form-control col-md-12" name="account">
-						<!-- 此处填充类型选择 -->
+						<label>农场号 </label> <select id="select-farm"
+							class="form-control col-md-12" name="account">
+							<!-- 此处填充类型选择 -->
 						</select>
 					</div>
 					<div class="form-group">
@@ -399,7 +382,7 @@
 			//获取所有农场
 			getFarm();
 			//获取所有设备数据
-			getDevice();
+			getAllDevice();
 		});
 		//请求农场
 		function getFarm() {
@@ -414,9 +397,12 @@
 					//alert(d);
 					if (rdata.code == 0) {
 						$('#table-farm').empty();
+						$('#dev-state').empty();
 						for (var i = 0; i < rdata.data.length; i++) {
 							addRowFarm(rdata.data[i]);
 							addOptionFarm(rdata.data[i]);
+							addDevFarm(rdata.data[i]);
+							getDevice(rdata.data[i].farmnum);
 						}
 					} else {
 						alert('请求失败');
@@ -439,27 +425,41 @@
 					+ farm.model
 					+ '</td>'
 					+ '<td>'
-					+ '<button id="btn_'+farm.id+'" onclick="changeMode(this)" class="btn btn-white btn-sm"><i class="fa fa-exchange"></i>'
+					+ '<button id="btn_'
+					+ farm.id
+					+ '" onclick="changeMode(this)" class="btn btn-white btn-sm"><i class="fa fa-exchange"></i>'
 					+ '模式切换 </button></td>'
 					+ '<td>'
-					+ '<button id="btnstate_'+farm.id+'" onclick="checkState(this)" class="btn btn-white btn-sm"><i class="fa fa-circle-o-notch"></i>'
+					+ '<button id="btnstate_'
+					+ farm.id
+					+ '" onclick="checkState(this)" class="btn btn-white btn-sm"><i class="fa fa-circle-o-notch"></i>'
 					+ '?线</button></td></tr>';
 			$('#table-farm').append(rowfarm);
-			$('#btnstate_'+farm.id).click();
-			
+			$('#btnstate_' + farm.id).click();
+
 		}
-		
 
 		//填充农场
 		function addOptionFarm(obj) {
-			var rowoptfarm = '<option value="'+obj.id+'">' + obj.farmname
+			var rowoptfarm = '<option value="'+obj.id+'">' + obj.farmnum
 					+ '</option>'
 			$('#select-farm').append(rowoptfarm);
 		}
-		
 
+		//填充设备农场
+		function addDevFarm(obj) {
+			var alldev = '<div class="col-lg-6"><div class="ibox float-e-margins"><div class="ibox-title">'
+					+ '<h5>农场号：'
+					+ obj.farmnum
+					+ '</h5>'
+					+ '<div class="ibox-tools"><a class="collapse-link"> <i class="fa fa-chevron-up"></i></a> <a class="close-link"> <i class="fa fa-times"></i></a></div></div>'
+					+ '<div class="ibox-content"><table class="table table-hover"><thead><tr><th>#</th><th>设备名</th><th>设备状态</th><th>状态检测</th></tr></thead>'
+					+ '<tbody id="devbody_'+obj.farmnum+'"></tbody>'
+					+ '</table></div></div></div>';
+			$('#dev-state').append(alldev);
+		}
 		//请求数据
-		function getDevice() {
+		function getAllDevice() {
 			var url = '/iagriculture/device/all';
 			$.ajax({
 				url : url,
@@ -477,71 +477,37 @@
 						alert('请求失败');
 					}
 				}
-			}); 
+			});
 		}
 		//添加一行数据
 		function addRowData(data) {
 			$('#editable').dataTable().fnAddData(
-					[ data.id, data.farmId, data.devNum, data.farmId ]);			
+					[ data.id, data.farmId, data.devNum ]);
 		}
 
-		//切换模式
-		function changeMode(obj){
-			var url = '/iagriculture/farm/model';
-			var fid=obj.id.split('_');
-			//alert(fid[1]);
-			var sendData = {
-				'id' :fid[1]
-			};
-			$.ajax({
-				url : url,
-				data : sendData,
-				type : 'POST',
-				dataType : "text",
-				success : function(d) {
-					var rdata = JSON.parse(d);
-					//alert(d);
-					if (rdata.code == 0) {	
-						$('#table-farm').empty();
-						getFarm();
-						swal("成功!", "模式切换:)", "success");
-					} else {
-						swal("失败", "设备未连接:(", "error");
-					}
-				}
-			});
-		}
+		//datatable单行点击事件
+		$(document).on("dblclick", "#editable tbody tr", function() {
+			var index = $(this).context._DT_RowIndex; //行号			
+			//alert($('#editable').dataTable().fnGetData(index)[0]);
+			swal({
+                title: "确定要删除吗?",
+                text: "您将删除当前设备!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "是的，删除它!",
+                closeOnConfirm: false
+            }, function () {
+            	deleteDev($('#editable').dataTable().fnGetData(index)[0],$('#editable').dataTable().fnGetData(index)[1]);
+            });
+			
+		});
 		
-		//农场在线状态检测
-		function checkState(obj){
-			var url = '/iagriculture/farm/state';
-			var fid=obj.id.split('_');
+		//删除数据类型
+		function deleteDev(id,farmid) {
+			var url = '/iagriculture/device/delete';
 			var sendData = {
-				'id' :fid[1]
-			};
-			$.ajax({
-				url : url,
-				data : sendData,
-				type : 'POST',
-				dataType : "text",
-				success : function(d) {
-					var rdata = JSON.parse(d);
-					//alert(d);
-					if (rdata.code == 0) {							
-						obj.innerHTML='在线';
-					} else {
-						obj.innerHTML='离线';
-					}
-				}
-			});
-		}
-		
-		//添加农场
-		$('#btn-save-dev').click(function() {
-			var url = '/iagriculture/device/add';
-			var sendData = {
-				'farmId' : $('#select-farm').val(),
-				'devNum' : $('#input-add-devNum').val()
+				'id' :id
 			};
 			$.ajax({
 				url : url,
@@ -552,18 +518,108 @@
 					var rdata = JSON.parse(d);
 					//alert(d);
 					if (rdata.code == 0) {
-						swal("成功!", "添加:)", "success");
-						$('#myModal-dev').modal('hide');
+						swal("已删除!", "删除成功:)", "success");					
+						//alert($('#select-farm option[value="'+farmid+'"]').text());
+						 var fnam=$('#select-farm option[value="'+farmid+'"]').text();
+						$('#devbody_'+ fnam ).empty(); 
 						$('#editable').dataTable().fnClearTable();
-						getDevice();
+						getAllDevice();
+						getDevice(fnam);
 					} else {
-						swal("失败", "该设备已经存在:(", "error");
+						swal("失败", "删除失败:(", "error");
+					}
+				}
+
+			});
+		}
+
+		
+		//切换模式
+		function changeMode(obj) {
+			var url = '/iagriculture/farm/model';
+			var fid = obj.id.split('_');
+			//alert(fid[1]);
+			var sendData = {
+				'id' : fid[1]
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						$('#table-farm').empty();
+						getFarm();
+						swal("成功!", "模式切换:)", "success");
+					} else {
+						swal("失败", "设备未连接:(", "error");
 					}
 				}
 			});
-		});
-		
-		
+		}
+
+		//农场在线状态检测
+		function checkState(obj) {
+			var url = '/iagriculture/farm/state';
+			var fid = obj.id.split('_');
+			var sendData = {
+				'id' : fid[1]
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						obj.innerHTML = '在线';
+					} else {
+						obj.innerHTML = '离线';
+					}
+				}
+			});
+		}
+
+		//添加农场
+		$('#btn-save-dev').click(
+				function() {
+					var url = '/iagriculture/device/add';
+					var sendData = {
+						'farmId' : $('#select-farm').val(),
+						'devNum' : $('#input-add-devNum').val()
+					};
+					$.ajax({
+						url : url,
+						data : sendData,
+						type : 'POST',
+						dataType : "text",
+						success : function(d) {
+							var rdata = JSON.parse(d);
+							//alert(d);
+							if (rdata.code == 0) {
+								swal("成功!", "添加:)", "success");
+								$('#myModal-dev').modal('hide');
+								$('#editable').dataTable().fnClearTable();
+								$(
+										'#devbody_'
+												+ $('#select-farm').find(
+														'option:selected')
+														.text()).empty();
+								getAllDevice();
+								getDevice($('#select-farm').find(
+										'option:selected').text());
+							} else {
+								swal("失败", "该设备已经存在:(", "error");
+							}
+						}
+					});
+				});
+
 		//data表个控制
 		$(document)
 				.ready(
@@ -582,41 +638,7 @@
 								'sPaginationType' : 'full_numbers'
 							});
 
-							/* Apply the jEditable handlers to the table */
-							/* oTable
-									.$('td')
-									.editable(
-											'../example_ajax.php',
-											{
-												"callback" : function(sValue, y) {
-													var aPos = oTable
-															.fnGetPosition(this);
-													oTable.fnUpdate(sValue,
-															aPos[0], aPos[1]);
-												},
-												"submitdata" : function(value,
-														settings) {
-													return {
-														"row_id" : this.parentNode
-																.getAttribute('id'),
-														"column" : oTable
-																.fnGetPosition(this)[2]
-													};
-												},
-
-												"width" : "90%",
-												"height" : "100%"
-											});
-							 */
 						});
-		/* 
-		 function fnClickAddRow() {
-		 $('#editable').dataTable()
-		 .fnAddData(
-		 [ "Custom row", "New row", "New row", "New row",
-		 "New row" ]);
-
-		 } */
 
 		//刷新按钮
 		$(document).ready(function() {
@@ -624,11 +646,6 @@
 			$('#loading-example-btn').click(function() {
 				btn = $(this);
 				simpleLoad(btn, true)
-
-				// Ajax example
-				//                $.ajax().always(function () {
-				//                    simpleLoad($(this), false)
-				//                });
 
 				simpleLoad(btn, false)
 			});
@@ -640,13 +657,52 @@
 				btn.contents().last().replaceWith(" Loading");
 				$('#editable').dataTable().fnClearTable(); //清空一下table
 				$('#editable').dataTable().fnDestroy(); //还原初始化了的datatable
-				getData();
+				getDevice();
 			} else {
 				setTimeout(function() {
 					btn.children().removeClass('fa-spin');
 					btn.contents().last().replaceWith("刷新");
 				}, 2000);
 			}
+		}
+
+		//通过农场获取设备
+		function getDevice(farmNum) {
+			//alert(farmNum);
+			var url = '/iagriculture/device/farmid';
+			var sendData = {
+				'farmNum' : farmNum
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						for (var i = 0; i < rdata.data.length; i++) {
+							addFarmToDev(rdata.data[i], farmNum);
+						}
+					} else {
+						alert('请求失败');
+					}
+
+				}
+			});
+		}
+
+		function addFarmToDev(obj, farmNum) {
+			var alldev = '<tr><td>'
+					+ obj.id
+					+ '</td><td>'
+					+ obj.devNum
+					+ '</td><td>关</td><td>'
+					+ '<button id="btndevstate_"'
+					+ obj.id
+					+ ' onclick="checkState(this)" class="btn btn-white btn-sm">在线</button></td></tr>';
+			$('#devbody_' + farmNum).append(alldev);
 		}
 	</script>
 

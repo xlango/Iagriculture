@@ -2,20 +2,26 @@ package com.ia.controller;
 
 import org.junit.Test;
 
-import com.ia.entity.User;
+import com.aliyuncs.exceptions.ClientException;
+import com.ia.utils.SendMsg;
 
 public class Test1 {
 
-	@Test
+	//@Test
 	public  void test() {
-		User user=new User();
-		user.setName("123");
-		user.setPhone("123");
-		user.setAnswer("123");
-		user.setPwd("123");
-		user.setQuestion("123");
-		user.setSex("123");
-
+		try {
+			SendMsg.sendSms("17341930058", "向元浪", "50");
+		} catch (ClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+	
+	public static void main(String arg[]) {
+		int i = 5;
+		do {
+		System.out.print(i);
+		} while (--i>5);
+		System.out.println("Finished");
+		}
 }

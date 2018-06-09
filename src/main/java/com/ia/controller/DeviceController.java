@@ -82,4 +82,12 @@ public class DeviceController {
 			return ResultUtil.error();
 		}
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public Result delete(int id) {	
+		deviceService.deletebyId(id);
+		return ResultUtil.success();					
+	}
+
 }
