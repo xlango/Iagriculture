@@ -535,7 +535,6 @@
 							dataType : "text",
 							success : function(d) {
 								var rdata = JSON.parse(d);
-								//alert(rdata.HeWeather6[0].now.tmp);
 								$('#tmp').html(rdata.HeWeather6[0].now.tmp+'℃');
 							}
 						});

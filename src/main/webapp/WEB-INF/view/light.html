@@ -229,6 +229,7 @@
 								<h5>实时数据</h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+									</a> <a class="fullscreen-link"> <i class="fa fa-expand"></i>
 									</a> <a class="close-link"> <i class="fa fa-times"></i>
 									</a>
 								</div>
@@ -246,7 +247,8 @@
 								<h5>历史数据</h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
-									</a> <a class="close-link"> <i class="fa fa-times"></i>
+									</a> <a class="fullscreen-link"> <i class="fa fa-expand"></i>
+									</a>  <a class="close-link"> <i class="fa fa-times"></i>
 									</a>
 								</div>
 							</div>
@@ -314,15 +316,17 @@
 		//获取阀值
 		$.ajax({
 			url : '/iagriculture/datatype/typename',
-			data:{'typeName':'光照强度'},
+			data : {
+				'typeName' : '光照强度'
+			},
 			type : 'POST',
 			dataType : "text",
 			success : function(d) {
 				var rdata = JSON.parse(d);
 				//alert(d);
-				if (rdata.code == 0) {					
-					mindata=rdata.data.fzStart;
-					maxdata=rdata.data.fzEnd;											
+				if (rdata.code == 0) {
+					mindata = rdata.data.fzStart;
+					maxdata = rdata.data.fzEnd;
 				} else {
 					alert('请求失败');
 				}
@@ -438,12 +442,15 @@
 							width : 3
 						}
 					},
-					markLine: {
-						data : [
-		                    { name: '最小值',yAxis:mindata},
-		                    { name: '最大值',yAxis:maxdata}
-		                ]
-		            }
+					markLine : {
+						data : [ {
+							name : '最小值',
+							yAxis : mindata
+						}, {
+							name : '最大值',
+							yAxis : maxdata
+						} ]
+					}
 				} ]
 			};
 
@@ -561,12 +568,15 @@
 							width : 3
 						}
 					},
-					markLine: {
-						data : [
-							{ name: '最小值',yAxis:mindata},
-		                    { name: '最大值',yAxis:maxdata}
-		                ]
-		            }
+					markLine : {
+						data : [ {
+							name : '最小值',
+							yAxis : mindata
+						}, {
+							name : '最大值',
+							yAxis : maxdata
+						} ]
+					}
 				} ]
 			};
 
@@ -579,20 +589,18 @@
 
 
 	<script>
-		$(document)
-				.ready(
-						function() {
-							
-							$('#data_2 .input-group.date').datepicker({
-								startView : 1,
-								todayBtn : "linked",
-								keyboardNavigation : false,
-								forceParse : false,
-								autoclose : true,
-								format : "dd/mm/yyyy"
-							});
+		$(document).ready(function() {
 
-						});		
+			$('#data_2 .input-group.date').datepicker({
+				startView : 1,
+				todayBtn : "linked",
+				keyboardNavigation : false,
+				forceParse : false,
+				autoclose : true,
+				format : "dd/mm/yyyy"
+			});
+
+		});
 
 		//装换日期格式
 		function fomatNowTime(t) {

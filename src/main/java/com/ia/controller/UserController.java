@@ -76,19 +76,5 @@ public class UserController {
 		}	
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public Result test() {
-		
-		user.setName("123");
-		user.setPhone("123");
-		user.setAnswer("123");
-		user.setPwd("123");
-		user.setQuestion("123");
-		user.setSex("123");
-		userService.add(user);
-			
-	  return ResultUtil.success(user);		
-		
-	}
+	
 }

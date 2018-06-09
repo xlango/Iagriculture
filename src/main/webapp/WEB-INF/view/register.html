@@ -3,65 +3,131 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Register</title>
+<title>INSPINIA | Register</title>
 
-    <link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/iagriculture/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="/iagriculture/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="/iagriculture/css/animate.css" rel="stylesheet">
-    <link href="/iagriculture/css/style.css" rel="stylesheet">
+<link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
+<link href="/iagriculture/font-awesome/css/font-awesome.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/plugins/iCheck/custom.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet">
+<link href="/iagriculture/css/animate.css" rel="stylesheet">
+<link href="/iagriculture/css/style.css" rel="stylesheet">
 
 </head>
 
 <body class="gray-bg">
 
-    <div class="middle-box text-center loginscreen   animated fadeInDown">
-        <div>
-            <div>
+	<div class="middle-box text-center loginscreen   animated fadeInDown">
+		<div>
+			<div>
 
-                <h1 class="logo-name">IN+</h1>
+				<h1 class="logo-name">IA</h1>
 
-            </div>
-            <h3>Register to IN+</h3>
-            <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="login.html">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required="">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required="">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
-                </div>
-                <div class="form-group">
-                        <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
-                </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+			</div>
+			<h3>Register to IA</h3>
+			<p>Create account to see it in action.</p>
 
-                <p class="text-muted text-center"><small>Already have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="login.html">Login</a>
-            </form>
-            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
-        </div>
-    </div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Telephone"
+					id="input-tel" required="">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Password"
+					id="input-pwd" required="">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Name"
+					id="input-name" required="">
+			</div>
+			<div class="form-group">
+				<select type="text" class="form-control" id="select-sex">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select type="text" class="form-control" id="input-question">
+					<option value="您的真实姓名是什么？">您的真实姓名是什么？</option>
+					<option value="您的配偶姓名是什么？">您的配偶姓名是什么？</option>
+					<option value="您的父亲姓名是什么？">您的父亲姓名是什么？</option>
+					<option value="您的母亲姓名是什么？">您的母亲姓名是什么？</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Answer"
+					id="input-answer" required="">
+			</div>
+			<div class="form-group">
+				<div class="checkbox i-checks">
+					<label> <input type="checkbox"><i></i> Agree the
+						terms and policy
+					</label>
+				</div>
+			</div>
+			<button class="btn btn-primary block full-width m-b" id="btn-registe">Register</button>
 
-    <!-- Mainly scripts -->
-    <script src="/iagriculture/js/jquery-2.1.1.js"></script>
-    <script src="/iagriculture/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="/iagriculture/js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
-        });
-    </script>
+			<p class="text-muted text-center">
+				<small>Already have an account?</small>
+			</p>
+			<a class="btn btn-sm btn-white btn-block" href="login.html">Login</a>
+
+			<p class="m-t">
+				<small>Inspinia we app framework base on Bootstrap 3 &copy;
+					2014</small>
+			</p>
+		</div>
+	</div>
+
+	<!-- Mainly scripts -->
+	<script src="/iagriculture/js/jquery-2.1.1.js"></script>
+	<script src="/iagriculture/js/bootstrap.min.js"></script>
+	<!-- iCheck -->
+	<script src="/iagriculture/js/plugins/iCheck/icheck.min.js"></script>
+	<script src="/iagriculture/js/plugins/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.i-checks').iCheck({
+				checkboxClass : 'icheckbox_square-green',
+				radioClass : 'iradio_square-green',
+			});
+		});
+
+		$('#btn-registe').click(function(event) {
+			var url = '/iagriculture/user/registe';
+			var sendData = {
+				'name' : $('#input-name').val(),
+				'pwd' : $('#input-pwd').val(),
+				'phone' : $('#input-tel').val(),
+				'sex' : $('#select-sex option:selected').val(),
+				'question' : $('#input-question option:selected').val(),
+				'answer' : $('#input-answer').val()
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					if (rdata.code == 0) {
+						swal("注册!", "注册成功:)", "success");
+						toIndex();
+					} else {
+						swal("注册", "注册失败，该手机号已被注册:(", "error");
+					}
+				}
+			});
+		});
+
+		function toIndex() {
+			$(location).attr('href', '/iagriculture/index/login');//跳转至主界面
+		}
+	</script>
 </body>
 
 </html>
