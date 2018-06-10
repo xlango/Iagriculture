@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>INSPINIA | Data Tables</title>
+<title>设备管理</title>
 
 <link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
 <link href="/iagriculture/font-awesome/css/font-awesome.css"
@@ -585,6 +585,30 @@
 			});
 		}
 
+		//设备在线状态检测
+		function checkDevState(obj) {
+			var url = '/iagriculture/device/state';
+			var fid = obj.id.split('_');
+			var sendData = {
+				'id' : fid[1]
+			};
+			$.ajax({
+				url : url,
+				data : sendData,
+				type : 'GET',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						obj.innerHTML = '在线';
+					} else {
+						obj.innerHTML = '离线';
+					}
+				}
+			});
+		}
+		
 		//添加农场
 		$('#btn-save-dev').click(
 				function() {
@@ -698,11 +722,12 @@
 					+ obj.id
 					+ '</td><td>'
 					+ obj.devNum
-					+ '</td><td>关</td><td>'
+					+ '</td><td>开/关</td><td>'
 					+ '<button id="btndevstate_"'
-					+ obj.id
-					+ ' onclick="checkState(this)" class="btn btn-white btn-sm">在线</button></td></tr>';
+					+ farmNum
+					+ ' onclick="checkDevState(this)" class="btn btn-white btn-sm">未检测</button></td></tr>';
 			$('#devbody_' + farmNum).append(alldev);
+			$('#btndevstate_' + farmNum).click();
 		}
 	</script>
 

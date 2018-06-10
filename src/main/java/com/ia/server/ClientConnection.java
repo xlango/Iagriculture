@@ -66,15 +66,15 @@ class RunThread implements Runnable {
                 	
 					//byte[] bytes = new byte[1024]; // 假设发送的字节数不超过 1024 个
 					int size = in.read(buff); // size 是读取到的字节数
-					MacName = bytesToHex(buff, 0, size, "");
-
+					MacName = bytesToHex(buff, 0, size, " ");
+                    System.out.println(MacName);
 					ClientConnection ccon = ZhnyServer.Hmap.get(macName);// 根据暂定硬件名获取对应的连接
 
 					// 在HashMap中将之前的暂定名换为真实名
 					ZhnyServer.Hmap.remove(macName);
-					ZhnyServer.Hmap.put(MacName, ccon);
+					ZhnyServer.Hmap.put(DataUtil.analysisMac(MacName), ccon);
 					System.out.println(
-							"In HashMap," + macName + "(TemporaryName) is replaced to " + MacName + "(RealName)\n");
+							"In HashMap," + macName + "(TemporaryName) is replaced to " + DataUtil.analysisMac(MacName) + "(RealName)\n");
 					byte send[] = { (byte) 0xef, (byte) 0xee, (byte) 0xfe };
 					ou = new DataOutputStream(socket.getOutputStream());
 					ou.write(send);
@@ -94,9 +94,14 @@ class RunThread implements Runnable {
 					realyData = bytesToHex(buff, 0, size, " ");
 					Data d = DataUtil.analysisData(realyData);
 					//System.out.println("真实数据類型：" + d.getTypeId());
-					alert(d);
-					add(d);//添加一条数据
+					if(d==null) {
+						System.out.println("数据不包含正确数据");
+					}else {
+						add(d);//添加一条数据
+						
+					}
 					System.out.println("真实数据：" + realyData);
+					
 				}
 			}
 		} catch (IOException e) {
@@ -180,7 +185,7 @@ class RunThread implements Runnable {
                  System.out.print("最大值: " + fzmax);
                  
                  //发送报警短信
-                 SendMsg.sendSms("17341930058", "向元浪", "50");
+                // SendMsg.sendSms("17341930058", "向元浪", "50");
              }
              // 完成后关闭
              rs.close();

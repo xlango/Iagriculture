@@ -301,13 +301,17 @@
 		function getNowTime() {
 			var time = new Date(); // 程序计时的月从0开始取值后+1   
 			var m = time.getMonth() + 1;
-			var m1 = '';
+			var date=time.getDate();
 			if (m < 10) {
-				m1 = '0' + m;
+				m = '0' + m;
 			}
-			var t = time.getFullYear() + '-' + m1 + '-' + time.getDate();
+			if (time.getDate() < 10) {
+				date = '0' + time.getDate();
+			}
+			var t = time.getFullYear() + '-' + m + '-' + date;
 			return t;
 		}
+
 
 		var mindata = 0;
 		var maxdata = 0;
@@ -648,7 +652,7 @@
 			var sendData = {
 				'farmNum' : fnum,
 				'time' : time,
-				'typeId' : 8
+				'typeId' : 7
 			};
 			$.ajax({
 				url : url,
@@ -685,7 +689,7 @@
 			var sendData = {
 				'farmNum' : fnum,
 				'time' : nowtime,
-				'typeId' : 8
+				'typeId' : 7
 			};
 			$.ajax({
 				url : url,

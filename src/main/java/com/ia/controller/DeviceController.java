@@ -54,13 +54,13 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/switch", method = RequestMethod.POST)
-	public Result switchs(String farmNum, String devNum, Boolean sw) {
+	public Result switchs(String farmNum, String devNum,String devtype, Boolean sw) {
 		System.out.println("farm:"+farmNum+"dev:"+devNum);
 		Boolean sendflag = false;
 		if (sw) {
-			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devNum + " 01 FF");
+			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devtype  + " " + devNum + " 80 00 FF");
 		} else {
-			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devNum + " 00 FF");
+			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devtype  + " " + devNum + " 81 00 FF");
 		}
 		if (sendflag) {
 			return ResultUtil.success();
@@ -75,7 +75,7 @@ public class DeviceController {
 	public Result state() {
 		//System.out.println("farm:"+farmNum+"dev:"+devNum);
 		String reState = null;
-		reState = ZhnyServer.devState("11", "EF DD FF");
+		reState = ZhnyServer.devState("00", "EF 00 01 01 82 00 FF");
 		if (reState!=null) {
 			return ResultUtil.success(reState);
 		} else {

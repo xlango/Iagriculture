@@ -507,7 +507,6 @@
 
 	<script>
 		$(document).ready(function() {
-			findWeather();
 			setTimeout(function() {
 				toastr.options = {
 					closeButton : true,
@@ -528,6 +527,8 @@
 						$('#cityName').html(
 								remote_ip_info.province + remote_ip_info.city
 										+ remote_ip_info.district);
+						alert(remote_ip_info.province + remote_ip_info.city
+								+ remote_ip_info.district);
 						var url = 'https://free-api.heweather.com/s6/weather/now?location='+remote_ip_info.city+'&key=c7704495c8ba4f42bc1f0eb46ddbda9f';
 						$.ajax({
 							url : url,
@@ -535,6 +536,7 @@
 							dataType : "text",
 							success : function(d) {
 								var rdata = JSON.parse(d);
+								alert(d);
 								$('#tmp').html(rdata.HeWeather6[0].now.tmp+'℃');
 							}
 						});
@@ -542,7 +544,7 @@
 						alert('没有找到匹配的IP地址信息！');
 					}
 				});
-		
+		//https://free-api.heweather.com/s6/weather/now?location=达州&key=c7704495c8ba4f42bc1f0eb46ddbda9f
 	</script>
 </body>
 </html>

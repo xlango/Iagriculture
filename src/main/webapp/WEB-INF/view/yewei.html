@@ -474,17 +474,19 @@
 			/* var datax = [ '16:5:51', '16:10:51', '16:15:51', '16:20:51',
 					'16:25:51', '16:30:51', '16:35:51', '16:40:51', '16:45:51',
 					'16:50:51', '16:55:51', '17:00:51', '17:05:51', '17:10:51' ]; */
-			function getNowTime() {
-				var time = new Date(); // 程序计时的月从0开始取值后+1   
-				var m = time.getMonth() + 1;
-				var m1 = '';
-				if (m < 10) {
-					m1 = '0' + m;
-				}
-				var t = time.getFullYear() + '-' + m1 + '-' + time.getDate();
-				return t;
-			}
-
+					function getNowTime() {
+						var time = new Date(); // 程序计时的月从0开始取值后+1   
+						var m = time.getMonth() + 1;
+						var date=time.getDate();
+						if (m < 10) {
+							m = '0' + m;
+						}
+						if (time.getDate() < 10) {
+							date = '0' + time.getDate();
+						}
+						var t = time.getFullYear() + '-' + m + '-' + date;
+						return t;
+					}
 					
 					var mindata = 0;
 					var maxdata = 0;
@@ -1175,7 +1177,7 @@
 				var sendData = {
 					'farmNum' : fnum,
 					'time' : time,
-					'typeId' : 7
+					'typeId' : 6
 				};
 				$.ajax({
 					url : url,
@@ -1212,7 +1214,7 @@
 				var sendData = {
 					'farmNum' : fnum,
 					'time' : nowtime,
-					'typeId' : 7
+					'typeId' : 6
 				};
 				$.ajax({
 					url : url,
@@ -1295,7 +1297,8 @@
 				var sendData = {
 					'farmNum' : $('#select-farm').val(),
 					'devNum' : $('#select-dev').val(),
-					'sw' : sw
+					'sw' : sw,
+					'devtype' : '01'
 				};
 				$.ajax({
 					url : url,

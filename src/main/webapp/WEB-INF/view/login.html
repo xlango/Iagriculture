@@ -74,6 +74,7 @@
 					dataType : "text",
 					success : function(d) {
 						var rdata = JSON.parse(d);
+						//alert(d);
 						if (rdata.code == 0) {
 							swal("登录!", "登录成功:)", "success");
 							toIndex();
