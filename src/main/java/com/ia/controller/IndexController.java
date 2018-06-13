@@ -16,8 +16,11 @@ import com.ia.service.IUserService;
 import com.ia.utils.Result;
 import com.ia.utils.ResultUtil;
 
+import io.swagger.annotations.Api;
+
 @Controller
 @RequestMapping(value = "/index")
+@Api(value="web端界面跳转接口",tags={"web端界面跳转Api"})
 public class IndexController {
    
 	User user=new User();

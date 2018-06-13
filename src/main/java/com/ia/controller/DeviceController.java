@@ -17,8 +17,12 @@ import com.ia.service.IFarmService;
 import com.ia.utils.Result;
 import com.ia.utils.ResultUtil;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @Controller
 @RequestMapping(value = "/device")
+@Api(value="设备接口",tags={"设备Api"})
 public class DeviceController {
 
 	Device data = new Device();
@@ -29,6 +33,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@ApiOperation(value = "获取所有设备", httpMethod = "GET", notes = "获取所有设备") 
 	public Result gets() {
 		List<Device> list = deviceService.gets();
 		return ResultUtil.success(list);
@@ -36,6 +41,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@ApiOperation(value = "添加设备", httpMethod = "POST", notes = "添加设备")
 	public Result add(Device d) {
 		if (deviceService.getbyNum(d.getDevNum(), d.getFarmId()) == null) {
 			deviceService.add(d);
@@ -47,6 +53,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/farmid", method = RequestMethod.POST)
+	@ApiOperation(value = "根据农场号获取农场", httpMethod = "POST", notes = "根据农场号获取农场")
 	public Result getbyfarm(String farmNum) {
 		System.out.println("farm:" + farmService.getbyNum(farmNum).getId());
 		return ResultUtil.success(deviceService.getbyfarm(farmService.getbyNum(farmNum).getId()));
@@ -54,6 +61,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/switch", method = RequestMethod.POST)
+	@ApiOperation(value = "开关设备", httpMethod = "POST", notes = "开关设备")
 	public Result switchs(String farmNum, String devNum,String devtype, Boolean sw) {
 		System.out.println("farm:"+farmNum+"dev:"+devNum);
 		Boolean sendflag = false;
@@ -72,6 +80,7 @@ public class DeviceController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/state", method = RequestMethod.GET)
+	@ApiOperation(value = "检测设备状态", httpMethod = "POST", notes = "检测设备状态")
 	public Result state() {
 		//System.out.println("farm:"+farmNum+"dev:"+devNum);
 		String reState = null;
@@ -85,6 +94,7 @@ public class DeviceController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@ApiOperation(value = "根据id删除设备", httpMethod = "POST", notes = "根据id删除设备")
 	public Result delete(int id) {	
 		deviceService.deletebyId(id);
 		return ResultUtil.success();					
