@@ -16,7 +16,7 @@ public class Device {
 	private int id;//主键
 	private int farmId;//所属农场
 	private String devNum;//设备号
-	
+	private int devstate;//设备状态
 	
 	public int getId() {
 		return id;
@@ -38,4 +38,11 @@ public class Device {
 	public void setDevNum(String devNum) {
 		this.devNum = devNum;
 	}
+	public int getDevstate() {
+		return devstate;
+	}
+	public void setDevstate(int devstate) {
+		this.devstate = devstate;
+	}
+	
 }

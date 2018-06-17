@@ -59,7 +59,4 @@ public class DeviceDaoImpl implements IDeviceDao {
 		String hql = "from Device as d where  d.farmId="+farmid; 
 		return (List<Device>) this.getSession().createQuery(hql).list();
 	}
-
-
-
 }

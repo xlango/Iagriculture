@@ -79,17 +79,12 @@ public class DeviceController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "/state", method = RequestMethod.GET)
+	@RequestMapping(value = "/state", method = RequestMethod.POST)
 	@ApiOperation(value = "检测设备状态", httpMethod = "POST", notes = "检测设备状态")
-	public Result state() {
-		//System.out.println("farm:"+farmNum+"dev:"+devNum);
-		String reState = null;
-		reState = ZhnyServer.devState("00", "EF 00 01 01 82 00 FF");
-		if (reState!=null) {
-			return ResultUtil.success(reState);
-		} else {
-			return ResultUtil.error();
-		}
+	public Result state(String farmNum, String devNum,String devtype) {
+		System.out.println("farm:"+farmNum+"dev:"+devNum+"devtype:"+devtype);
+		ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devtype  + " " + devNum + " 82 00 FF");
+		return ResultUtil.success(deviceService.getbyNum(devNum, farmService.getbyNum(farmNum).getId()));
 	}
 	
 	@ResponseBody

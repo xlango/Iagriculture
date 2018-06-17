@@ -4,14 +4,14 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.ia.entity.Data;
+import com.ia.entity.Device;
+import com.ia.utils.DBConnection;
 import com.ia.utils.DataUtil;
-import com.ia.utils.SendMsg;
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
 public class ClientConnection {
@@ -100,7 +100,13 @@ class RunThread implements Runnable {
 						add(d);//添加一条数据
 						
 					}
-					System.out.println("真实数据：" + realyData);
+					Device dev=DataUtil.analysisOrder(realyData);
+					if(dev==null) {
+						System.out.println("数据不包含正确指令");
+					}else {
+						updateDevState(dev.getFarmId(), dev.getDevNum(), dev.getDevstate());//更新设备状态						
+					}
+					System.out.println("底层真实数据：" + realyData);
 					
 				}
 			}
@@ -194,38 +200,27 @@ class RunThread implements Runnable {
             e.printStackTrace();
         }
     }
-}
-
-/**
- * 连接数据库
- */
-class DBConnection {
-
-    String driver = "com.mysql.jdbc.Driver";
-    String url= "jdbc:mysql:///iagriculture";
-    String user = "root";
-    String password = "123456";
     
-    public Connection conn;
-
-    public DBConnection() {
-
+  /**
+   * 修改农场号和设备号设别状态
+   */
+    public static int updateDevState(int farmId,String devNum,int devState) {
+        int i =0;
+        String sql="update device set devState=? where farmId=? and devNum=?";
+        DBConnection db = new DBConnection();
+        
         try {
-            Class.forName(driver);// 加载驱动程序
-            conn = (Connection) DriverManager.getConnection(url, user, password);// 连续数据库
+            PreparedStatement preStmt = (PreparedStatement) db.conn.prepareStatement(sql);
+            preStmt.setInt(1, devState);          
+            preStmt.setInt(2, farmId);
+            preStmt.setString(3, devNum);
+            preStmt.executeUpdate();
             
-            if(!conn.isClosed())
-                System.out.println("Succeeded connecting to the Database!"); 
-        } catch (Exception e) {
+            preStmt.close();
+            db.close();//关闭连接 
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    
-    public void close() {
-        try {
-            this.conn.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return i;//返回影响的行数，1为执行成功
     }
 }

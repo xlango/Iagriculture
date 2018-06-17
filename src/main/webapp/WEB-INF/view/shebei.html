@@ -590,18 +590,25 @@
 			var url = '/iagriculture/device/state';
 			var fid = obj.id.split('_');
 			var sendData = {
-				'id' : fid[1]
+				 'farmNum':fid[1],
+				 'devNum':fid[2],
+				 'devtype':'01'
 			};
 			$.ajax({
 				url : url,
 				data : sendData,
-				type : 'GET',
+				type : 'POST',
 				dataType : "text",
 				success : function(d) {
 					var rdata = JSON.parse(d);
 					//alert(d);
 					if (rdata.code == 0) {
-						obj.innerHTML = '在线';
+						if(rdata.data.devstate==0){								
+							$('#kg_'+fid[1]+'_'+fid[2]).html('关');
+						}else{
+							$('#kg_'+fid[1]+'_'+fid[2]).html('开');
+						}
+						
 					} else {
 						obj.innerHTML = '离线';
 					}
@@ -718,14 +725,21 @@
 		}
 
 		function addFarmToDev(obj, farmNum) {
+			var state="";
+			//alert(obj.devState);
+			if(obj.devstate==0){
+				state="关"
+			}else{
+				state="开"
+			}
 			var alldev = '<tr><td>'
 					+ obj.id
 					+ '</td><td>'
 					+ obj.devNum
-					+ '</td><td>开/关</td><td>'
-					+ '<button id="btndevstate_"'
-					+ farmNum
-					+ ' onclick="checkDevState(this)" class="btn btn-white btn-sm">未检测</button></td></tr>';
+					+ '</td><td id="kg_'+farmNum+'_'+obj.devNum+'">'+state+'</td><td>'
+					+ '<button id="btndevstate_'
+					+ farmNum+'_'+obj.devNum+'"'
+					+ ' onclick="checkDevState(this)" class="btn btn-white btn-sm">检测</button></td></tr>';
 			$('#devbody_' + farmNum).append(alldev);
 			$('#btndevstate_' + farmNum).click();
 		}

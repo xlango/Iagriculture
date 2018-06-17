@@ -22,8 +22,8 @@
 		<property name="suffix" value=".html"></property>
 	</bean>
 
-    <!-- swagger测试 :注入SpringSwaggerConfig-->  
-    <bean class="com.ia.utils.SwaggerConfig" />  
+	<!-- swagger测试 :注入SpringSwaggerConfig -->
+	<bean class="com.ia.utils.SwaggerConfig" />
 
 	<!-- 静态资源映射 -->
 	<mvc:resources mapping="/fonts/**" location="/WEB-INF/static/fonts/"></mvc:resources>
@@ -35,7 +35,8 @@
 	<mvc:resources mapping="/font-awesome/**" location="/WEB-INF/static/font-awesome/"></mvc:resources>
 	<mvc:resources mapping="/LESS/**" location="/WEB-INF/static/LESS/"></mvc:resources>
 	<mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
-		<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"></mvc:resources>
+	<mvc:resources mapping="/webjars/**"
+		location="classpath:/META-INF/resources/webjars/" />
 
 
 	<!-- 静态资源交给默认的Servlet -->

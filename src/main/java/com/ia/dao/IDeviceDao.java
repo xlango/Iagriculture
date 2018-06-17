@@ -26,4 +26,5 @@ public interface IDeviceDao {
 	public Device getbyNum(String num,int farmid);
 	
 	public List<Device> getbyfarm(int farmid);
+	
 }
