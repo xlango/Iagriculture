@@ -190,8 +190,12 @@ class RunThread implements Runnable {
                  System.out.print("最小值: " + fzmin);
                  System.out.print("最大值: " + fzmax);
                  
-                 //发送报警短信
-                // SendMsg.sendSms("17341930058", "向元浪", "50");
+                 
+                 if(data.getData()>=fzmax||data.getData()<=fzmin) {
+                	//发送报警短信
+                     // SendMsg.sendSms("17341930058", "向元浪", "50");
+                 }
+                 
              }
              // 完成后关闭
              rs.close();

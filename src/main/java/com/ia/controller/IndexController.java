@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ia.entity.User;
 import com.ia.server.ZhnyServer;
 import com.ia.service.IUserService;
+import com.ia.utils.CityandWeatherUtil;
 import com.ia.utils.Result;
 import com.ia.utils.ResultUtil;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Controller
 @RequestMapping(value = "/index")
@@ -189,4 +191,15 @@ public class IndexController {
           return ResultUtil.success();
 	}
 	
+	
+	/**
+	 * 获取本地城市
+	 * @throws IOException 
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/localcity")
+	@ApiOperation(value = "定位本地城市", httpMethod = "GET", notes = "定位本地城市") 
+	public Result getlocalcity() throws IOException {		
+			return ResultUtil.success(CityandWeatherUtil.getMyIP());		
+	}
 }

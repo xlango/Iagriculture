@@ -8,6 +8,7 @@
 	<name>iagriculture Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.5.RELEASE</spring.version>
@@ -200,9 +201,30 @@
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.6.0</version>
 			<scope>compile</scope>
-		</dependency>	
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>iagriculture</finalName>
+		<plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- 我运行这个jar所运行的主类 -->
+                            <mainClass>com.lw.maven.pack.App</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>
+                            <!-- 必须是这样写 -->
+                            jar-with-dependencies
+                        </descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
+
 </project>
