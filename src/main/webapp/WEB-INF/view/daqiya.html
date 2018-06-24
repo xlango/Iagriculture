@@ -61,21 +61,17 @@
 					<li class="active"><a href="/iagriculture/index/daqiya"><i
 							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
 					<li><a href="/iagriculture/index/shuifen"><i
-							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+							class="fa fa-envelope"></i> <span class="nav-label">土壤水分检测 </span></a></li>
 					<li><a href="/iagriculture/index/kqwendu"><i
 							class="fa fa-pie-chart"></i> <span class="nav-label">空气温度检测</span>
 					</a></li>
 					<li><a href="/iagriculture/index/kqshidu"><i
 							class="fa fa-pie-chart"></i> <span class="nav-label">空气湿度检测</span>
 					</a></li>
-					<li><a href="/iagriculture/index/trwendu"><i
-							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
 					<li><a href="/iagriculture/index/yewei"><i
 							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
 					<li><a href="/iagriculture/index/yushui"><i
-							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>
-					<li><a href="/iagriculture/index/co2"><i
-							class="fa fa-globe"></i> <span class="nav-label">二氧化碳浓度</span></a></li>
+							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>					
 				</ul>
 
 			</div>
@@ -98,25 +94,21 @@
 						</form>
 					</div>
 					<ul class="nav navbar-top-links navbar-right">
-						<li><span class="m-r-sm text-muted welcome-message">Welcome
-								to INSPINIA+ Admin Theme.</span></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
-								<span class="label label-warning">16</span>
+								<span class="label label-warning">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-messages">
-
-								<li class="divider"></li>
 								<li>
 									<div class="dropdown-messages-box">
 										<a href="profile.html" class="pull-left"> <img alt="image"
-											class="img-circle" src="/iagriculture/img/profile.jpg">
+											class="img-circle" src="/iagriculture/img/a7.jpg">
 										</a>
-										<div class="media-body ">
-											<small class="pull-right">23h ago</small> <strong>Monica
-												Smith</strong> love <strong>Kim Smith</strong>. <br> <small
-												class="text-muted">2 days ago at 2:30 am -
-												11.06.2014</small>
+										<div class="media-body">
+											<small class="pull-right">46h ago</small> <strong>Mike
+												Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+											<small class="text-muted">3 days ago at 7:58 pm -
+												10.06.2014</small>
 										</div>
 									</div>
 								</li>
@@ -131,18 +123,16 @@
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
-								class="label label-primary">8</span>
+								class="label label-primary">1</span>
 						</a>
-							<ul class="dropdown-menu dropdown-alerts">
-								<li class="divider"></li>
-								<li><a href="mailbox.html">
+							<ul class="dropdown-menu dropdown-alerts">								
+								<li><a href="grid_options.html">
 										<div>
-											<i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+											<i class="fa fa-upload fa-fw"></i> Server Rebooted <span
 												class="pull-right text-muted small">4 minutes ago</span>
 										</div>
 								</a></li>
 								<li class="divider"></li>
-
 								<li>
 									<div class="text-center link-block">
 										<a href="notifications.html"> <strong>See All
@@ -326,7 +316,7 @@
 			dataType : "text",
 			success : function(d) {
 				var rdata = JSON.parse(d);
-				alert(d);
+				//alert(d);
 				if (rdata.code == 0) {					
 					mindata=rdata.data.fzStart;
 					maxdata=rdata.data.fzEnd;											

@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>INSPINIA | Dashboard</title>
+<title>主页</title>
 
 <link href="/iagriculture/css/bootstrap.min.css" rel="stylesheet">
 <link href="/iagriculture/font-awesome/css/font-awesome.css"
@@ -62,18 +62,19 @@
 					<li><a href="/iagriculture/index/daqiya"><i
 							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
 					<li><a href="/iagriculture/index/shuifen"><i
-							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+							class="fa fa-envelope"></i> <span class="nav-label">土壤水分检测
+						</span></a></li>
 					<li><a href="/iagriculture/index/kqwendu"><i
-							class="fa fa-pie-chart"></i> <span class="nav-label">空气温湿度检测</span>
+							class="fa fa-pie-chart"></i> <span class="nav-label">空气温度检测</span>
 					</a></li>
-					<li><a href="/iagriculture/index/trwendu"><i
-							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
+					<li><a href="/iagriculture/index/kqshidu"><i
+							class="fa fa-pie-chart"></i> <span class="nav-label">空气湿度检测</span>
+					</a></li>
+
 					<li><a href="/iagriculture/index/yewei"><i
 							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
 					<li><a href="/iagriculture/index/yushui"><i
 							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>
-					<li><a href="/iagriculture/index/co2"><i
-							class="fa fa-globe"></i> <span class="nav-label">二氧化碳浓度</span></a></li>
 				</ul>
 
 			</div>
@@ -95,11 +96,10 @@
 						</form>
 					</div>
 					<ul class="nav navbar-top-links navbar-right">
-						<li><span class="m-r-sm text-muted welcome-message">Welcome
-								to INSPINIA+ Admin Theme.</span></li>
+						<li><span class="m-r-sm text-muted welcome-message">欢迎来到智能农业后台管理系统</span></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
-								<span class="label label-warning">16</span>
+								<span class="label label-warning">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-messages">
 								<li>
@@ -126,7 +126,7 @@
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
-								class="label label-primary">8</span>
+								class="label label-primary">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-alerts">
 								<li><a href="mailbox.html">
@@ -219,24 +219,19 @@
 					<div class="col-md-8">
 						<div class="ibox float-e-margins">
 							<div class="ibox-title">
-								<h5>Activites</h5>
+								<h5>每日任务</h5>
 								<div class="ibox-tools">
 									<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 									</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 										<i class="fa fa-wrench"></i>
-									</a>
-									<ul class="dropdown-menu dropdown-user">
-										<li><a href="#">Config option 1</a></li>
-										<li><a href="#">Config option 2</a></li>
-									</ul>
-									<a class="close-link"> <i class="fa fa-times"></i>
+									</a> <a class="close-link"> <i class="fa fa-times"></i>
 									</a>
 								</div>
 							</div>
 							<div class="ibox-content">
 								<h3>To-do</h3>
 								<p class="small">
-									<i class="fa fa-hand-o-up"></i> Drag task between list
+									<i class="fa fa-hand-o-up"></i> 任务清单
 								</p>
 
 								<div class="input-group">
@@ -244,7 +239,7 @@
 										class="input input-sm form-control"> <span
 										class="input-group-btn">
 										<button type="button" class="btn btn-sm btn-white">
-											<i class="fa fa-plus"></i> Add task
+											<i class="fa fa-plus"></i> 添加
 										</button>
 									</span>
 								</div>
@@ -310,27 +305,6 @@
 				</div>
 				<div class="chat-message">Lorem Ipsum is simpl.</div>
 			</div>
-			<div class="left">
-				<div class="author-name">
-					Alice Novak <small class="chat-date"> 08:45 pm </small>
-				</div>
-				<div class="chat-message active">Check this stock char.</div>
-			</div>
-			<div class="right">
-				<div class="author-name">
-					Anna Lamson <small class="chat-date"> 11:24 am </small>
-				</div>
-				<div class="chat-message">The standard chunk of Lorem Ipsum</div>
-			</div>
-			<div class="left">
-				<div class="author-name">
-					Mick Lane <small class="chat-date"> 08:45 pm </small>
-				</div>
-				<div class="chat-message active">I belive that. Lorem Ipsum is
-					simply dummy text.</div>
-			</div>
-
-
 		</div>
 		<div class="form-chat">
 			<div class="input-group input-group-sm">
@@ -379,7 +353,7 @@
 							<a href="#">
 								<div class="pull-left text-center">
 									<img alt="image" class="img-circle message-avatar"
-										src="/iagriculture/img/a2.jpg"/>
+										src="/iagriculture/img/a2.jpg" />
 								</div>
 								<div class="media-body">
 									The point of using Lorem Ipsum is that it has a more-or-less
@@ -518,9 +492,6 @@
 
 			}, 1300);
 
-		    		  
-			
-			
 			$.ajax({
 				url : '/iagriculture/index/localcity',
 				type : 'GET',
@@ -529,7 +500,7 @@
 					var rdata = JSON.parse(d);
 					//alert(d);	
 					$('#cityName').html(rdata.data);
-					var city= rdata.data.split('省')[1].split('市')[0];
+					var city = rdata.data.split('省')[1].split('市')[0];
 					//alert(city);
 					getWeather(city);
 				}
@@ -537,19 +508,18 @@
 		});
 
 		//通过城市获取天气信息
-		function getWeather(city){
+		function getWeather(city) {
 			$.ajax({
-				url : 'https://free-api.heweather.com/s6/weather/now?location='+city+'&key=c7704495c8ba4f42bc1f0eb46ddbda9f',
+				url : 'https://free-api.heweather.com/s6/weather/now?location='
+						+ city + '&key=c7704495c8ba4f42bc1f0eb46ddbda9f',
 				type : 'GET',
 				dataType : "text",
 				success : function(d) {
 					var rdata = JSON.parse(d);
-					$('#tmp').html(rdata.HeWeather6[0].now.tmp+'℃');				
+					$('#tmp').html(rdata.HeWeather6[0].now.tmp + '℃');
 				}
 			});
 		}
-		
-		
 	</script>
 
 

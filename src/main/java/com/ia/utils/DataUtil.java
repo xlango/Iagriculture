@@ -98,7 +98,11 @@ public class DataUtil {
 			if (maclist[i].equals("AA")) {
 				trueMac=maclist[i+1];
 			}
+			if((i+1)==maclist.length) {
+				trueMac= null;
+			}
 		}
+		
 		return trueMac;
 	}
 

@@ -53,7 +53,7 @@ public class DeviceController {
 
 	@ResponseBody
 	@RequestMapping(value = "/farmid", method = RequestMethod.POST)
-	@ApiOperation(value = "根据农场号获取农场", httpMethod = "POST", notes = "根据农场号获取农场")
+	@ApiOperation(value = "根据农场号获取农场设备", httpMethod = "POST", notes = "根据农场号获取农场设备")
 	public Result getbyfarm(String farmNum) {
 		System.out.println("farm:" + farmService.getbyNum(farmNum).getId());
 		return ResultUtil.success(deviceService.getbyfarm(farmService.getbyNum(farmNum).getId()));
@@ -65,12 +65,16 @@ public class DeviceController {
 	public Result switchs(String farmNum, String devNum,String devtype, Boolean sw) {
 		System.out.println("farm:"+farmNum+"dev:"+devNum);
 		Boolean sendflag = false;
+		Device device= deviceService.getbyNum(devNum, farmService.getbyNum(farmNum).getId());
 		if (sw) {
 			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devtype  + " " + devNum + " 80 00 FF");
+			device.setDevstate(1);
 		} else {
 			sendflag = ZhnyServer.writeOrder(farmNum, "EF " + farmNum + " " + devtype  + " " + devNum + " 81 00 FF");
+			device.setDevstate(0);
 		}
-		if (sendflag) {
+		if (sendflag) {						
+			deviceService.update(device);
 			return ResultUtil.success();
 		} else {
 			return ResultUtil.error();
@@ -94,5 +98,7 @@ public class DeviceController {
 		deviceService.deletebyId(id);
 		return ResultUtil.success();					
 	}
+    
 
+	
 }

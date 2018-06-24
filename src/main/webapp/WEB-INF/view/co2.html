@@ -62,12 +62,13 @@
 					<li><a href="/iagriculture/index/daqiya"><i
 							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
 					<li><a href="/iagriculture/index/shuifen"><i
-							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+							class="fa fa-envelope"></i> <span class="nav-label">土壤水分检测
+						</span></a></li>
+					<li><a href="/iagriculture/index/trwendu"><i
+							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
 					<li><a href="/iagriculture/index/kqwendu"><i
 							class="fa fa-pie-chart"></i> <span class="nav-label">空气温湿度检测</span>
 					</a></li>
-					<li><a href="/iagriculture/index/trwendu"><i
-							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
 					<li><a href="/iagriculture/index/yewei"><i
 							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
 					<li><a href="/iagriculture/index/yushui"><i
@@ -96,25 +97,21 @@
 						</form>
 					</div>
 					<ul class="nav navbar-top-links navbar-right">
-						<li><span class="m-r-sm text-muted welcome-message">Welcome
-								to INSPINIA+ Admin Theme.</span></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
-								<span class="label label-warning">16</span>
+								<span class="label label-warning">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-messages">
-
-								<li class="divider"></li>
 								<li>
 									<div class="dropdown-messages-box">
 										<a href="profile.html" class="pull-left"> <img alt="image"
-											class="img-circle" src="/iagriculture/img/profile.jpg">
+											class="img-circle" src="/iagriculture/img/a7.jpg">
 										</a>
-										<div class="media-body ">
-											<small class="pull-right">23h ago</small> <strong>Monica
-												Smith</strong> love <strong>Kim Smith</strong>. <br> <small
-												class="text-muted">2 days ago at 2:30 am -
-												11.06.2014</small>
+										<div class="media-body">
+											<small class="pull-right">46h ago</small> <strong>Mike
+												Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+											<small class="text-muted">3 days ago at 7:58 pm -
+												10.06.2014</small>
 										</div>
 									</div>
 								</li>
@@ -129,18 +126,16 @@
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
-								class="label label-primary">8</span>
+								class="label label-primary">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-alerts">
-								<li class="divider"></li>
-								<li><a href="mailbox.html">
+								<li><a href="grid_options.html">
 										<div>
-											<i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+											<i class="fa fa-upload fa-fw"></i> Server Rebooted <span
 												class="pull-right text-muted small">4 minutes ago</span>
 										</div>
 								</a></li>
 								<li class="divider"></li>
-
 								<li>
 									<div class="text-center link-block">
 										<a href="notifications.html"> <strong>See All
@@ -302,7 +297,7 @@
 		function getNowTime() {
 			var time = new Date(); // 程序计时的月从0开始取值后+1   
 			var m = time.getMonth() + 1;
-			var date=time.getDate();
+			var date = time.getDate();
 			if (m < 10) {
 				m = '0' + m;
 			}
@@ -313,20 +308,21 @@
 			return t;
 		}
 
-
 		var mindata = 0;
 		var maxdata = 0;
 		//获取阀值
 		$.ajax({
 			url : '/iagriculture/datatype/typename',
-			data:{'typeName':'二氧化碳浓度'},
+			data : {
+				'typeName' : '二氧化碳浓度'
+			},
 			type : 'POST',
 			dataType : "text",
 			success : function(d) {
 				var rdata = JSON.parse(d);
-				if (rdata.code == 0) {					
-					mindata=rdata.data.fzStart;
-					maxdata=rdata.data.fzEnd;											
+				if (rdata.code == 0) {
+					mindata = rdata.data.fzStart;
+					maxdata = rdata.data.fzEnd;
 				} else {
 					alert('请求失败');
 				}
@@ -442,12 +438,15 @@
 							width : 3
 						}
 					},
-					markLine: {
-						data : [
-							{ name: '最小值',yAxis:mindata},
-		                    { name: '最大值',yAxis:maxdata}
-		                ]
-		            }
+					markLine : {
+						data : [ {
+							name : '最小值',
+							yAxis : mindata
+						}, {
+							name : '最大值',
+							yAxis : maxdata
+						} ]
+					}
 				} ]
 			};
 
@@ -565,12 +564,15 @@
 							width : 3
 						}
 					},
-					markLine: {
-						data : [
-							{ name: '最小值',yAxis:mindata},
-		                    { name: '最大值',yAxis:maxdata}
-		                ]
-		            }
+					markLine : {
+						data : [ {
+							name : '最小值',
+							yAxis : mindata
+						}, {
+							name : '最大值',
+							yAxis : maxdata
+						} ]
+					}
 				} ]
 			};
 
@@ -581,21 +583,19 @@
 	</script>
 
 
-<script>
-		$(document)
-				.ready(
-						function() {
-							
-							$('#data_2 .input-group.date').datepicker({
-								startView : 1,
-								todayBtn : "linked",
-								keyboardNavigation : false,
-								forceParse : false,
-								autoclose : true,
-								format : "dd/mm/yyyy"
-							});
+	<script>
+		$(document).ready(function() {
 
-						});		
+			$('#data_2 .input-group.date').datepicker({
+				startView : 1,
+				todayBtn : "linked",
+				keyboardNavigation : false,
+				forceParse : false,
+				autoclose : true,
+				format : "dd/mm/yyyy"
+			});
+
+		});
 
 		//装换日期格式
 		function fomatNowTime(t) {
@@ -603,14 +603,14 @@
 			return time[2] + '-' + time[1] + '-' + time[0];
 		}
 	</script>
-	
+
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			getFarm();
 			//alert($('#select-farm').val());
-			getHistoryData('11', '2018-05-06');
-			getSSData('11');
+			getHistoryData('00', '2018-06-23');
+			getSSData('00');
 		});
 		//请求农场
 		function getFarm() {

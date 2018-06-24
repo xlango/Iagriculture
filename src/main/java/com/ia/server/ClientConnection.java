@@ -72,7 +72,15 @@ class RunThread implements Runnable {
 
 					// 在HashMap中将之前的暂定名换为真实名
 					ZhnyServer.Hmap.remove(macName);
-					ZhnyServer.Hmap.put(DataUtil.analysisMac(MacName), ccon);
+					if(DataUtil.analysisMac(MacName)==null) {
+						ZhnyServer.Hmap.put("00", ccon);
+					}
+					else {
+					/*s*/
+						ZhnyServer.Hmap.put(MacName, ccon);
+					//}
+					}
+					
 					System.out.println(
 							"In HashMap," + macName + "(TemporaryName) is replaced to " + DataUtil.analysisMac(MacName) + "(RealName)\n");
 					byte send[] = { (byte) 0xef, (byte) 0xee, (byte) 0xfe };
@@ -87,6 +95,7 @@ class RunThread implements Runnable {
 			
 
 			while (isRun) {
+				socket.setSoTimeout(302000);
 				in = socket.getInputStream();
 				buff = new byte[in.available()];
 				if (buff.length>0) {
@@ -97,8 +106,7 @@ class RunThread implements Runnable {
 					if(d==null) {
 						System.out.println("数据不包含正确数据");
 					}else {
-						add(d);//添加一条数据
-						
+						add(d);//添加一条数据						
 					}
 					Device dev=DataUtil.analysisOrder(realyData);
 					if(dev==null) {

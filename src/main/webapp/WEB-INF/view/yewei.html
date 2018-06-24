@@ -105,21 +105,19 @@
 					<li><a href="/iagriculture/index/daqiya"><i
 							class="fa fa-bar-chart-o"></i> <span class="nav-label">大气压检测</span></a></li>
 					<li><a href="/iagriculture/index/shuifen"><i
-							class="fa fa-envelope"></i> <span class="nav-label">水分检测 </span></a></li>
+							class="fa fa-envelope"></i> <span class="nav-label">土壤水分检测
+						</span></a></li>
 					<li><a href="/iagriculture/index/kqwendu"><i
 							class="fa fa-pie-chart"></i> <span class="nav-label">空气温度检测</span>
 					</a></li>
 					<li><a href="/iagriculture/index/kqshidu"><i
 							class="fa fa-pie-chart"></i> <span class="nav-label">空气湿度检测</span>
 					</a></li>
-					<li><a href="/iagriculture/index/trwendu"><i
-							class="fa fa-edit"></i> <span class="nav-label">土壤温度检测</span></a></li>
+
 					<li class="active"><a href="/iagriculture/index/yewei"><i
 							class="fa fa-desktop"></i> <span class="nav-label">液位检测</span> </a></li>
 					<li><a href="/iagriculture/index/yushui"><i
 							class="fa fa-files-o"></i> <span class="nav-label">雨水检测</span></a></li>
-					<li><a href="/iagriculture/index/co2"><i
-							class="fa fa-globe"></i> <span class="nav-label">二氧化碳浓度</span></a></li>
 				</ul>
 
 			</div>
@@ -142,25 +140,21 @@
 						</form>
 					</div>
 					<ul class="nav navbar-top-links navbar-right">
-						<li><span class="m-r-sm text-muted welcome-message">Welcome
-								to INSPINIA+ Admin Theme.</span></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
-								<span class="label label-warning">16</span>
+								<span class="label label-warning">1</span>
 						</a>
 							<ul class="dropdown-menu dropdown-messages">
-
-								<li class="divider"></li>
 								<li>
 									<div class="dropdown-messages-box">
 										<a href="profile.html" class="pull-left"> <img alt="image"
-											class="img-circle" src="/iagriculture/img/profile.jpg">
+											class="img-circle" src="/iagriculture/img/a7.jpg">
 										</a>
-										<div class="media-body ">
-											<small class="pull-right">23h ago</small> <strong>Monica
-												Smith</strong> love <strong>Kim Smith</strong>. <br> <small
-												class="text-muted">2 days ago at 2:30 am -
-												11.06.2014</small>
+										<div class="media-body">
+											<small class="pull-right">46h ago</small> <strong>Mike
+												Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+											<small class="text-muted">3 days ago at 7:58 pm -
+												10.06.2014</small>
 										</div>
 									</div>
 								</li>
@@ -175,18 +169,16 @@
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle count-info"
 							data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
-								class="label label-primary">8</span>
+								class="label label-primary">1</span>
 						</a>
-							<ul class="dropdown-menu dropdown-alerts">
-								<li class="divider"></li>
-								<li><a href="mailbox.html">
+							<ul class="dropdown-menu dropdown-alerts">								
+								<li><a href="grid_options.html">
 										<div>
-											<i class="fa fa-envelope fa-fw"></i> You have 16 messages <span
+											<i class="fa fa-upload fa-fw"></i> Server Rebooted <span
 												class="pull-right text-muted small">4 minutes ago</span>
 										</div>
 								</a></li>
 								<li class="divider"></li>
-
 								<li>
 									<div class="text-center link-block">
 										<a href="notifications.html"> <strong>See All
@@ -325,30 +317,22 @@
 							<div class="ibox-content">
 								<div class="row">
 									<div class="col-md-6">
-										<label class="font-noraml">选择设备号</label>
-														
+										<label class="font-noraml">选择设备号</label> <label
+											class="font-noraml">(设备当前状态：<span id="state_text"
+											style="color: red;">关</span>)
+										</label>
 										<div class="input-group">
 											<select id="select-dev" class="form-control"
 												style="width: 480px" name="account">
 												<!-- 此处填充设备号选择 -->
 											</select>
 										</div>
-										<label class="font-noraml">设备当前状态：</label>
-										<div class="switch">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" checked="" class="onoffswitch-checkbox" id="example1">
-                                    <label class="onoffswitch-label" for="example1">
-                                        <span class="onoffswitch-inner"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
-                                </div>
-                            </div>			
 									</div>
-									
+
 									<div class="col-md-6" style="margin-top: 20px;">
-										<input type="checkbox" class="js-switch" checked=""
-											onchange="changeSwitch(this)" data-switchery="true"
-											style="display: none;">
+										<input type="checkbox" class="js-switch" 
+											id="btn-switch" onchange="changeSwitch(this)"
+											data-switchery="true" style="display: none;"> 
 									</div>
 								</div>
 							</div>
@@ -372,99 +356,99 @@
 
 
 		<!-- Mainly scripts -->
-	<script src="/iagriculture/js/jquery-2.1.1.js"></script>
-	<script src="/iagriculture/js/bootstrap.min.js"></script>
-	<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	<script
-		src="/iagriculture/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="/iagriculture/js/jquery-2.1.1.js"></script>
+		<script src="/iagriculture/js/bootstrap.min.js"></script>
+		<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script
+			src="/iagriculture/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-	<!-- Flot -->
-	<script src="/iagriculture/js/plugins/flot/jquery.flot.js"></script>
-	<script src="/iagriculture/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-	<script src="/iagriculture/js/plugins/flot/jquery.flot.spline.js"></script>
-	<script src="/iagriculture/js/plugins/flot/jquery.flot.resize.js"></script>
-	<script src="/iagriculture/js/plugins/flot/jquery.flot.pie.js"></script>
+		<!-- Flot -->
+		<script src="/iagriculture/js/plugins/flot/jquery.flot.js"></script>
+		<script src="/iagriculture/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+		<script src="/iagriculture/js/plugins/flot/jquery.flot.spline.js"></script>
+		<script src="/iagriculture/js/plugins/flot/jquery.flot.resize.js"></script>
+		<script src="/iagriculture/js/plugins/flot/jquery.flot.pie.js"></script>
 
-	<!-- Peity -->
-	<script src="/iagriculture/js/plugins/peity/jquery.peity.min.js"></script>
-	<script src="/iagriculture/js/demo/peity-demo.js"></script>
+		<!-- Peity -->
+		<script src="/iagriculture/js/plugins/peity/jquery.peity.min.js"></script>
+		<script src="/iagriculture/js/demo/peity-demo.js"></script>
 
-	<!-- Custom and plugin javascript -->
-	<script src="/iagriculture/js/inspinia.js"></script>
-	<script src="/iagriculture/js/plugins/pace/pace.min.js"></script>
+		<!-- Custom and plugin javascript -->
+		<script src="/iagriculture/js/inspinia.js"></script>
+		<script src="/iagriculture/js/plugins/pace/pace.min.js"></script>
 
-	<!-- jQuery UI -->
-	<script src="/iagriculture/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+		<!-- jQuery UI -->
+		<script src="/iagriculture/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-	<!-- GITTER -->
-	<script src="/iagriculture/js/plugins/gritter/jquery.gritter.min.js"></script>
+		<!-- GITTER -->
+		<script src="/iagriculture/js/plugins/gritter/jquery.gritter.min.js"></script>
 
-	<!-- Sparkline -->
-	<script
-		src="/iagriculture/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+		<!-- Sparkline -->
+		<script
+			src="/iagriculture/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-	<!-- Sparkline demo data  -->
-	<script src="/iagriculture/js/demo/sparkline-demo.js"></script>
+		<!-- Sparkline demo data  -->
+		<script src="/iagriculture/js/demo/sparkline-demo.js"></script>
 
-	<!-- ChartJS-->
-	<script src="/iagriculture/js/plugins/chartJs/Chart.min.js"></script>
+		<!-- ChartJS-->
+		<script src="/iagriculture/js/plugins/chartJs/Chart.min.js"></script>
 
-	<!-- Toastr -->
-	<script src="/iagriculture/js/plugins/toastr/toastr.min.js"></script>
+		<!-- Toastr -->
+		<script src="/iagriculture/js/plugins/toastr/toastr.min.js"></script>
 
-	<!-- Chosen -->
-	<script src="/iagriculture/js/plugins/chosen/chosen.jquery.js"></script>
+		<!-- Chosen -->
+		<script src="/iagriculture/js/plugins/chosen/chosen.jquery.js"></script>
 
-	<!-- JSKnob -->
-	<script src="/iagriculture/js/plugins/jsKnob/jquery.knob.js"></script>
+		<!-- JSKnob -->
+		<script src="/iagriculture/js/plugins/jsKnob/jquery.knob.js"></script>
 
-	<!-- Input Mask-->
-	<script src="/iagriculture/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+		<!-- Input Mask-->
+		<script src="/iagriculture/js/plugins/jasny/jasny-bootstrap.min.js"></script>
 
-	<!-- Data picker -->
-	<script
-		src="/iagriculture/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+		<!-- Data picker -->
+		<script
+			src="/iagriculture/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
-	<!-- NouSlider -->
-	<script
-		src="/iagriculture/js/plugins/nouslider/jquery.nouislider.min.js"></script>
+		<!-- NouSlider -->
+		<script
+			src="/iagriculture/js/plugins/nouslider/jquery.nouislider.min.js"></script>
 
-	<!-- Switchery -->
-	<script src="/iagriculture/js/plugins/switchery/switchery.js"></script>
+		<!-- Switchery -->
+		<script src="/iagriculture/js/plugins/switchery/switchery.js"></script>
 
-	<!-- IonRangeSlider -->
-	<script
-		src="/iagriculture/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
+		<!-- IonRangeSlider -->
+		<script
+			src="/iagriculture/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
 
-	<!-- iCheck -->
-	<script src="/iagriculture/js/plugins/iCheck/icheck.min.js"></script>
+		<!-- iCheck -->
+		<script src="/iagriculture/js/plugins/iCheck/icheck.min.js"></script>
 
-	<!-- MENU -->
-	<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<!-- MENU -->
+		<script src="/iagriculture/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-	<!-- Color picker -->
-	<script
-		src="/iagriculture/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+		<!-- Color picker -->
+		<script
+			src="/iagriculture/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 
-	<!-- Clock picker -->
-	<script src="/iagriculture/js/plugins/clockpicker/clockpicker.js"></script>
+		<!-- Clock picker -->
+		<script src="/iagriculture/js/plugins/clockpicker/clockpicker.js"></script>
 
-	<!-- Image cropper -->
-	<script src="/iagriculture/js/plugins/cropper/cropper.min.js"></script>
+		<!-- Image cropper -->
+		<script src="/iagriculture/js/plugins/cropper/cropper.min.js"></script>
 
-	<!-- Date range use moment.js same as full calendar plugin -->
-	<script src="/iagriculture/js/plugins/fullcalendar/moment.min.js"></script>
+		<!-- Date range use moment.js same as full calendar plugin -->
+		<script src="/iagriculture/js/plugins/fullcalendar/moment.min.js"></script>
 
-	<!-- Date range picker -->
-	<script
-		src="/iagriculture/js/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- Date range picker -->
+		<script
+			src="/iagriculture/js/plugins/daterangepicker/daterangepicker.js"></script>
 
-	<!-- Select2 -->
-	<script src="/iagriculture/js/plugins/select2/select2.full.min.js"></script>
+		<!-- Select2 -->
+		<script src="/iagriculture/js/plugins/select2/select2.full.min.js"></script>
 
-	<!-- 引入 echarts.js -->
-	<script src="/iagriculture/js/echarts.min.js"></script>
-		
+		<!-- 引入 echarts.js -->
+		<script src="/iagriculture/js/echarts.min.js"></script>
+
 		<script src="/iagriculture/js/plugins/sweetalert/sweetalert.min.js"></script>
 
 		<script type="text/javascript">
@@ -474,40 +458,42 @@
 			/* var datax = [ '16:5:51', '16:10:51', '16:15:51', '16:20:51',
 					'16:25:51', '16:30:51', '16:35:51', '16:40:51', '16:45:51',
 					'16:50:51', '16:55:51', '17:00:51', '17:05:51', '17:10:51' ]; */
-					function getNowTime() {
-						var time = new Date(); // 程序计时的月从0开始取值后+1   
-						var m = time.getMonth() + 1;
-						var date=time.getDate();
-						if (m < 10) {
-							m = '0' + m;
-						}
-						if (time.getDate() < 10) {
-							date = '0' + time.getDate();
-						}
-						var t = time.getFullYear() + '-' + m + '-' + date;
-						return t;
-					}
-					
-					var mindata = 0;
-					var maxdata = 0;
-					//获取阀值					
-					$.ajax({
-						url : '/iagriculture/datatype/typename',
-						data:{'typeName':'液位'},
-						type : 'POST',
-						dataType : "text",
-						success : function(d) {
-							var rdata = JSON.parse(d);
-							//alert(d);
-							if (rdata.code == 0) {					
-								mindata=rdata.data.fzStart;
-								maxdata=rdata.data.fzEnd;											
-							} else {
-								alert('请求失败');
-							}
+			function getNowTime() {
+				var time = new Date(); // 程序计时的月从0开始取值后+1   
+				var m = time.getMonth() + 1;
+				var date = time.getDate();
+				if (m < 10) {
+					m = '0' + m;
+				}
+				if (time.getDate() < 10) {
+					date = '0' + time.getDate();
+				}
+				var t = time.getFullYear() + '-' + m + '-' + date;
+				return t;
+			}
 
-						}
-					});
+			var mindata = 0;
+			var maxdata = 0;
+			//获取阀值					
+			$.ajax({
+				url : '/iagriculture/datatype/typename',
+				data : {
+					'typeName' : '液位'
+				},
+				type : 'POST',
+				dataType : "text",
+				success : function(d) {
+					var rdata = JSON.parse(d);
+					//alert(d);
+					if (rdata.code == 0) {
+						mindata = rdata.data.fzStart;
+						maxdata = rdata.data.fzEnd;
+					} else {
+						alert('请求失败');
+					}
+
+				}
+			});
 			//绘制历史数据表
 			function addChartHistoryData(datax, datay, time) {
 				var timex = [ time ];
@@ -617,12 +603,15 @@
 								width : 3
 							}
 						},
-						markLine: {
-							data : [
-								{ name: '最小值',yAxis:mindata},
-			                    { name: '最大值',yAxis:maxdata}
-			                ]
-			            }
+						markLine : {
+							data : [ {
+								name : '最小值',
+								yAxis : mindata
+							}, {
+								name : '最大值',
+								yAxis : maxdata
+							} ]
+						}
 
 					} ]
 
@@ -742,12 +731,15 @@
 								width : 3
 							}
 						},
-						markLine: {
-							data : [
-								{ name: '最小值',yAxis:mindata},
-			                    { name: '最大值',yAxis:maxdata}
-			                ]
-			            }
+						markLine : {
+							data : [ {
+								name : '最小值',
+								yAxis : mindata
+							}, {
+								name : '最大值',
+								yAxis : maxdata
+							} ]
+						}
 					} ]
 				};
 
@@ -1136,10 +1128,12 @@
 			$(document).ready(function() {
 				getFarm();
 				//alert($('#select-farm').val());
-				getHistoryData('11', '2018-05-06');
-				getSSData('11');
-				getDevice('11');
+				getHistoryData('00', '2018-06-23');
+				getSSData('00');
+				getDevice('00');
+				checkDevState('00', '01');
 			});
+
 			//请求农场
 			function getFarm() {
 				var url = '/iagriculture/farm/all';
@@ -1250,6 +1244,8 @@
 						'#select-datetime').val()));
 				getSSData($('#select-farm').val());
 				getDevice($('#select-farm').val());
+				checkDevState($('#select-farm').val(), $('#select-dev')
+						.children('option:selected').val());
 			}
 
 			//通过农场获取设备
@@ -1310,7 +1306,9 @@
 						//alert(d);
 						if (rdata.code == 0) {
 							//alert('成功');
-							swal("成功!", "模式切换:)", "success");
+							swal("成功!", "开关切换:)", "success");
+							checkDevState($('#select-farm').val(), $('#select-dev')
+									.children('option:selected').val());
 						} else {
 							swal("失败", "设备未连接:(", "error");
 						}
@@ -1318,6 +1316,44 @@
 					}
 				});
 			}
+
+			function checkDevState(farmNum, devNum) {
+				var url = '/iagriculture/device/state';
+				var sendData = {
+					'farmNum' : farmNum,
+					'devNum' : devNum,
+					'devtype' : '01'
+				};
+				$.ajax({
+					url : url,
+					data : sendData,
+					type : 'POST',
+					dataType : "text",
+					success : function(d) {
+						var rdata = JSON.parse(d);
+						//alert(d);
+						if (rdata.code == 0) {
+							if (rdata.data.devstate == 0) {
+								$('#state_text').html('关');
+								$('#btn-switch').removeAttribute('checked');
+							} else {
+								$('#state_text').html('开');
+								$('#btn-switch').setAttribute('checked', 'checked');
+							}
+
+						} else {
+							swal("失败", "设备未连接:(", "error");
+						}
+
+					}
+				});
+			}
+
+			$('#select-dev').change(
+					function() {
+						checkDevState($('#select-farm').val(), $('#select-dev')
+								.children('option:selected').val());
+					});
 		</script>
 </body>
 

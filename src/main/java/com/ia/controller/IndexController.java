@@ -40,6 +40,28 @@ public class IndexController {
 		//return ResultUtil.success();
 	}
 	
+	@RequestMapping(value = "/stopServer")
+	@ResponseBody
+	//@PostConstruct 启动端口监听
+	public void stopServer() {	
+		//ZigbeeSocketServer.startServer(8020);
+		ZhnyServer.stopServer();
+		System.out.println("关闭服务器==========");		
+		//return ResultUtil.success();
+	}
+	
+	@RequestMapping(value = "/restartServer")
+	@ResponseBody
+	//@PostConstruct 启动端口监听
+	public void restartServer() {	
+		//ZigbeeSocketServer.startServer(8020);
+		ZhnyServer.stopServer();
+		System.out.println("关闭服务器==========");	
+		ZhnyServer.startServer();
+		System.out.println("启动服务器==========");		
+		//return ResultUtil.success();
+	}
+	
 	/**
 	 * 主界面
 	 */

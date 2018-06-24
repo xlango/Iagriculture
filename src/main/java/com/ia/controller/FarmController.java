@@ -64,10 +64,10 @@ public class FarmController {
 		Boolean sendflag=false;
 		if(f.getModel()==0) {
 			f.setModel(1);
-			sendflag=ZhnyServer.writeOrder(f.getFarmnum(), "EF 01 FF");
+			sendflag=ZhnyServer.writeOrder(f.getFarmnum(), "EC 01 FF");
 		}else {
 			f.setModel(0);
-			sendflag=ZhnyServer.writeOrder(f.getFarmnum(), "EF 00 FF");
+			sendflag=ZhnyServer.writeOrder(f.getFarmnum(), "EC 00 FF");
 		}
 		
 		if(sendflag) {
